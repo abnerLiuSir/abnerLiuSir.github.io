@@ -1,576 +1,691 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="zh-cn">
 
-<!-- Head tag -->
+
 <head><meta name="generator" content="Hexo 3.9.0">
-
     <meta charset="utf-8">
+    <meta name="keywords" content="博客">
+    <meta name="description" content="abnerLiu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>abnerLiu</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <!--Description-->
-    
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
 
-    <!--Author-->
-    
-        <meta name="author" content="abnerliu">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="abnerLiu小恐龙">
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="abnerLiu小恐龙">
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website">
-    
-
-    <!--Page Cover-->
-    
-
-    <meta name="twitter:card" content="summary">
-    
-
-    <!-- Title -->
-    
-    <title>abnerLiu小恐龙</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- Google Analytics -->
-    
-
-
-</head>
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">abnerLiu</span>
+                </a>
+            </div>
+            
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
             
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
+            <i class="fa fa-home"></i>
             
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
+            <span>主页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
             
-            <li class="menu-item">
-                <a href="/about.html">
-                    About
-                </a>
-            </li>
+            <i class="fa fa-tags"></i>
             
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
-            </li>
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
             
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
+            <i class="fa fa-bookmark"></i>
             
-            <li class="menu-item">
-                <a href="/contact.html">
-                    Contact
-                </a>
-            </li>
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
             
-        </ul>
+            <i class="fa fa-archive"></i>
+            
+            <span>时间轴</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">abnerLiu</div>
+        <div class="logo-desc">
+            
+            不会RAP的厨子不是好程序员
+            
+        </div>
     </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                主页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                时间轴
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/abnerliushitong" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
 </div>
 
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
 
-<div class="container">
+        </div>
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">abnerLiu小恐龙</h1>
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/abnerliushitong" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
         
-    </div>
+    </nav>
+
 </header>
 
-        <section class="main">
-            
+
+<style>
+    .carousel-control {
+        width: 45px;
+        height: 45px;
+        line-height: 55px;
+        border-radius: 45px;
+        background: transparent;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    #prev-cover {
+        position: absolute;
+        top: 48%;
+        left: 8px;
+    }
+
+    #next-cover {
+        position: absolute;
+        top: 48%;
+        right: 8px;;
+    }
+
+    #prev-cover i {
+        margin-right: 3px;
+    }
+
+    #next-cover i {
+        margin-left: 3px;
+    }
+
+    .carousel-control:hover {
+        background-color:rgba(0, 0, 0, .4);
+    }
+
+    .carousel-control i {
+        color: #fff;
+        font-size: 2.4rem;
+    }
+</style>
+
+
+
+<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
+    
+    <div id="prev-cover" class="left waves-effect carousel-control">
+        <i class="icon fa fa-angle-left"></i>
+    </div>
+    <div id="next-cover" class="right waves-effect carousel-control">
+        <i class="icon fa fa-angle-right"></i>
+    </div>
+    
+
+    <div class="carousel-item red white-text bg-cover about-cover">
+        <div class="container">
+            <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
                 
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2019/09/14/面试1/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-09-14</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这期完全复刻木易老师的博客，因为写的很好 我这里只是自己复习，没有商用</p>
-<p><a href="https://github.com/yygmind/blog" target="_blank" rel="noopener">木易老师博客地址</a></p>
-<h1 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h1><p><strong>执行上下文</strong>总共有三种类型：</p>
-<p><strong>全局执行上下文</strong>：只有一个，浏览器中的全局对象就是 <code>window</code> 对象，this 指向这个全局对象。</p>
-<p><strong>函数执行上下文</strong>：存在无数个，只有在函数被调用的时候才会被创建，每次调用函数都会创建一个新的执行上下文。</p>
-<p><strong>Eval 函数执行上下文</strong>： 指的是运行在 <code>eval</code> 函数中的代码，很少用而且不建议使用。</p>
-<h2 id="执行栈"><a href="#执行栈" class="headerlink" title="执行栈"></a>执行栈</h2><p>执行栈，也叫调用栈，具有 <strong>LIFO</strong>（后进先出）结构，用于存储在代码执行期间创建的所有执行上下文。</p>
-<p>首次运行JS代码时，会创建一个<strong>全局</strong>执行上下文并Push到当前的执行栈中。每当发生函数调用，引擎都会为该函数创建一个新的函数执行上下文并Push到当前执行栈的栈顶。</p>
-<p>根据执行栈LIFO规则，当栈顶函数运行完成后，其对应的函数执行上下文将会从执行栈中Pop出，上下文控制权将移到当前执行栈的下一个执行上下文。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function first() &#123;  </span><br><span class="line">  console.log(&apos;Inside first function&apos;);  </span><br><span class="line">  second();  </span><br><span class="line">  console.log(&apos;Again inside first function&apos;);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function second() &#123;  </span><br><span class="line">  console.log(&apos;Inside second function&apos;);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">first();  </span><br><span class="line">console.log(&apos;Inside Global Execution Context&apos;);</span><br><span class="line"></span><br><span class="line">// Inside first function</span><br><span class="line">// Inside second function</span><br><span class="line">// Again inside first function</span><br><span class="line">// Inside Global Execution Context</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/22/16cb80e4579be263?w=1280&h=228&f=webp&s=13834" alt></p>
-<h2 id="执行上下文的创建"><a href="#执行上下文的创建" class="headerlink" title="执行上下文的创建"></a>执行上下文的创建</h2><p>执行上下文分两个阶段创建：<strong>1）创建阶段； 2）执行阶段</strong></p>
-<p><strong>创建阶段</strong></p>
-<p>1、确定 this 的值，也被称为 This Binding。</p>
-<p>2、LexicalEnvironment（词法环境） 组件被创建。</p>
-<p>3、VariableEnvironment（变量环境） 组件被创建。<br>直接看伪代码可能更加直观</p>
-<p>ExecutionContext = {<br>  ThisBinding = <this value>,     // 确定this<br>  LexicalEnvironment = { … },   // 词法环境<br>  VariableEnvironment = { … },  // 变量环境<br>}<br>This Binding<br>全局执行上下文中，this 的值指向全局对象，在浏览器中this 的值指向 window 对象，而在nodejs中指向这个文件的module对象。</this></p>
-<p>函数执行上下文中，this 的值取决于函数的调用方式。具体有：默认绑定、隐式绑定、显式绑定（硬绑定）、new绑定、箭头函数，具体内容会在【this全面解析】部分详解。</p>
-<p>词法环境（Lexical Environment）<br>词法环境有两个组成部分</p>
-<ul>
-<li><p>1、环境记录：存储变量和函数声明的实际位置</p>
-</li>
-<li><p>2、对外部环境的引用：可以访问其外部词法环境</p>
-</li>
-</ul>
-<p>词法环境有两种类型</p>
-<ul>
-<li><p>1、全局环境：是一个没有外部环境的词法环境，其外部环境引用为 null。拥有一个全局对象（window 对象）及其关联的方法和属性（例如数组方法）以及任何用户自定义的全局变量，this 的值指向这个全局对象。</p>
-</li>
-<li><p>2、函数环境：用户在函数中定义的变量被存储在环境记录中，包含了arguments 对象。对外部环境的引用可以是全局环境，也可以是包含内部函数的外部函数环境。</p>
-</li>
-</ul>
-<p>直接看伪代码可能更加直观</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">GlobalExectionContext = &#123;  // 全局执行上下文</span><br><span class="line">  LexicalEnvironment: &#123;    	  // 词法环境</span><br><span class="line">    EnvironmentRecord: &#123;   		// 环境记录</span><br><span class="line">      Type: &quot;Object&quot;,      		   // 全局环境</span><br><span class="line">      // 标识符绑定在这里 </span><br><span class="line">      outer: &lt;null&gt;  	   		   // 对外部环境的引用</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FunctionExectionContext = &#123; // 函数执行上下文</span><br><span class="line">  LexicalEnvironment: &#123;  	  // 词法环境</span><br><span class="line">    EnvironmentRecord: &#123;  		// 环境记录</span><br><span class="line">      Type: &quot;Declarative&quot;,  	   // 函数环境</span><br><span class="line">      // 标识符绑定在这里 			  // 对外部环境的引用</span><br><span class="line">      outer: &lt;Global or outer function environment reference&gt;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>变量环境<br>变量环境也是一个词法环境，因此它具有上面定义的词法环境的所有属性。</p>
-<p>在 ES6 中，词法 环境和 变量 环境的区别在于前者用于存储<strong>函数声明和变量</strong>（ let 和 const ）绑定，而后者仅用于存储<strong>变量</strong>（ var ）绑定。</p>
-<p>使用例子进行介绍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let a = 20;  </span><br><span class="line">const b = 30;  </span><br><span class="line">var c;</span><br><span class="line"></span><br><span class="line">function multiply(e, f) &#123;  </span><br><span class="line"> var g = 20;  </span><br><span class="line"> return e * f * g;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">c = multiply(20, 30);</span><br></pre></td></tr></table></figure>
-
-<p>执行上下文如下所示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">GlobalExectionContext = &#123;</span><br><span class="line"></span><br><span class="line">  ThisBinding: &lt;Global Object&gt;,</span><br><span class="line"></span><br><span class="line">  LexicalEnvironment: &#123;  </span><br><span class="line">    EnvironmentRecord: &#123;  </span><br><span class="line">      Type: &quot;Object&quot;,  </span><br><span class="line">      // 标识符绑定在这里  </span><br><span class="line">      a: &lt; uninitialized &gt;,  </span><br><span class="line">      b: &lt; uninitialized &gt;,  </span><br><span class="line">      multiply: &lt; func &gt;  </span><br><span class="line">    &#125;  </span><br><span class="line">    outer: &lt;null&gt;  </span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  VariableEnvironment: &#123;  </span><br><span class="line">    EnvironmentRecord: &#123;  </span><br><span class="line">      Type: &quot;Object&quot;,  </span><br><span class="line">      // 标识符绑定在这里  </span><br><span class="line">      c: undefined,  </span><br><span class="line">    &#125;  </span><br><span class="line">    outer: &lt;null&gt;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FunctionExectionContext = &#123;  </span><br><span class="line">   </span><br><span class="line">  ThisBinding: &lt;Global Object&gt;,</span><br><span class="line"></span><br><span class="line">  LexicalEnvironment: &#123;  </span><br><span class="line">    EnvironmentRecord: &#123;  </span><br><span class="line">      Type: &quot;Declarative&quot;,  </span><br><span class="line">      // 标识符绑定在这里  </span><br><span class="line">      Arguments: &#123;0: 20, 1: 30, length: 2&#125;,  </span><br><span class="line">    &#125;,  </span><br><span class="line">    outer: &lt;GlobalLexicalEnvironment&gt;  </span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  VariableEnvironment: &#123;  </span><br><span class="line">    EnvironmentRecord: &#123;  </span><br><span class="line">      Type: &quot;Declarative&quot;,  </span><br><span class="line">      // 标识符绑定在这里  </span><br><span class="line">      g: undefined  </span><br><span class="line">    &#125;,  </span><br><span class="line">    outer: &lt;GlobalLexicalEnvironment&gt;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><ul>
-<li><p>1.变量提升</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(num); //undefined</span><br><span class="line">var num = 1;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.函数提升</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">foo();  // foo2</span><br><span class="line">var foo = function() &#123;</span><br><span class="line">    console.log(&apos;foo1&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();  // foo1，foo重新赋值</span><br><span class="line"></span><br><span class="line">function foo() &#123;</span><br><span class="line">    console.log(&apos;foo2&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); // foo1</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><p>因为JS引擎创建了很多的执行上下文，所以JS引擎创建了执行上下文栈（Execution context stack，ECS）来管理执行上下文。</p>
-<p>有如下两段代码，执行的结果是一样的，但是两段代码究竟有什么不同？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var scope = &quot;global scope&quot;;</span><br><span class="line">function checkscope()&#123;</span><br><span class="line">    var scope = &quot;local scope&quot;;</span><br><span class="line">    function f()&#123;</span><br><span class="line">        return scope;</span><br><span class="line">    &#125;</span><br><span class="line">    return f();</span><br><span class="line">&#125;</span><br><span class="line">checkscope();</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var scope = &quot;global scope&quot;;</span><br><span class="line">function checkscope()&#123;</span><br><span class="line">    var scope = &quot;local scope&quot;;</span><br><span class="line">    function f()&#123;</span><br><span class="line">        return scope;</span><br><span class="line">    &#125;</span><br><span class="line">    return f;</span><br><span class="line">&#125;</span><br><span class="line">checkscope()();</span><br></pre></td></tr></table></figure>
-
-<p>答案是 执行上下文栈的变化不一样。</p>
-<p>第一段代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ECStack.push(&lt;checkscope&gt; functionContext);</span><br><span class="line">ECStack.push(&lt;f&gt; functionContext);</span><br><span class="line">ECStack.pop();</span><br><span class="line">ECStack.pop();</span><br></pre></td></tr></table></figure>
-
-<p>第二段代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ECStack.push(&lt;checkscope&gt; functionContext);</span><br><span class="line">ECStack.pop();</span><br><span class="line">ECStack.push(&lt;f&gt; functionContext);</span><br><span class="line">ECStack.pop();</span><br></pre></td></tr></table></figure>
-
-<h2 id="函数上下文"><a href="#函数上下文" class="headerlink" title="函数上下文"></a>函数上下文</h2><p>在函数上下文中，用活动对象(activation object, AO)来表示变量对象。</p>
-<p><strong>活动对象和变量对象</strong>的区别在于</p>
-<ul>
-<li>1、变量对象（VO）是规范上或者是JS引擎上实现的，并不能在JS环境中直接访问。</li>
-<li>2、当进入到一个执行上下文后，这个变量对象才会被激活，所以叫活动对象（AO），这时候活动对象上的各种属性才能被访问。<br>调用函数时，会为其创建一个Arguments对象，并自动初始化局部变量arguments，指代该Arguments对象。所有作为参数传入的值都会成为Arguments对象的数组元素。</li>
-</ul>
-<p>执行过程<br>执行上下文的代码会分成两个阶段进行处理</p>
-<ul>
-<li><p>1、进入执行上下文</p>
-</li>
-<li><p>2、代码执行</p>
-</li>
-</ul>
-<p>进入执行上下文<br>很明显，这个时候还没有执行代码</p>
-<p>此时的变量对象会包括（如下顺序初始化）：</p>
-<ul>
-<li>1、函数的所有形参 (only函数上下文)：没有实参，属性值设为undefined。</li>
-<li>2、函数声明：如果变量对象已经存在相同名称的属性，则完全替换这个属性。</li>
-<li>3、变量声明：如果变量名称跟已经声明的形参或函数相同，则变量声明不会干扰已经存在的这类属性。<br>上代码就直观了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function foo(a) &#123;</span><br><span class="line">  var b = 2;</span><br><span class="line">  function c() &#123;&#125;</span><br><span class="line">  var d = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  b = 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(1);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>对于上面的代码，这个时候的AO是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    arguments: &#123;</span><br><span class="line">        0: 1,</span><br><span class="line">        length: 1</span><br><span class="line">    &#125;,</span><br><span class="line">    a: 1,</span><br><span class="line">    b: undefined,</span><br><span class="line">    c: reference to function c()&#123;&#125;,</span><br><span class="line">    d: undefined</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>形参arguments这时候已经有赋值了，但是变量还是undefined，只是初始化的值</p>
-<p>代码执行<br>这个阶段会顺序执行代码，修改变量对象的值，执行完成后AO如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    arguments: &#123;</span><br><span class="line">        0: 1,</span><br><span class="line">        length: 1</span><br><span class="line">    &#125;,</span><br><span class="line">    a: 1,</span><br><span class="line">    b: 3,</span><br><span class="line">    c: reference to function c()&#123;&#125;,</span><br><span class="line">    d: reference to FunctionExpression &quot;d&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结如下：</p>
-<ul>
-<li><p>1、全局上下文的变量对象初始化是全局对象</p>
-</li>
-<li><p>2、函数上下文的变量对象初始化只包括 Arguments 对象</p>
-</li>
-<li><p>3、在进入执行上下文时会给变量对象添加形参、函数声明、变量声明等初始的属性值</p>
-</li>
-<li><p>4、在代码执行阶段，会再次修改变量对象的属性值</p>
-</li>
-</ul>
-<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><ul>
-<li>1.基本类型：–&gt; 栈内存（不包含闭包中的变量）</li>
-<li>2.引用类型：–&gt; 堆内存</li>
-</ul>
-<p><strong>内存回收</strong></p>
-<p>JavaScript有自动垃圾收集机制，垃圾收集器会每隔一段时间就执行一次释放操作，找出那些不再继续使用的值，然后释放其占用的内存。</p>
-<p><strong>局部变量和全局变量的销毁</strong></p>
-<ul>
-<li>局部变量：局部作用域中，当函数执行完毕，局部变量也就没有存在的必要了，因此垃圾收集器很容易做出判断并回收。</li>
-<li>全局变量：全局变量什么时候需要自动释放内存空间则很难判断，所以在开发中尽量避免使用全局变量。</li>
-</ul>
-<p>以Google的V8引擎为例，V8引擎中所有的JS对象都是通过<strong>堆</strong>来进行内存分配的</p>
-<ul>
-<li>初始分配：当声明变量并赋值时，V8引擎就会在堆内存中分配给这个变量。</li>
-<li>继续申请：当已申请的内存不足以存储这个变量时，V8引擎就会继续申请内存，直到堆的大小达到了V8引擎的内存上限为止。</li>
-</ul>
-<p>V8引擎对堆内存中的JS对象进行分代管理</p>
-<ul>
-<li>新生代：存活周期较短的JS对象，如临时变量、字符串等。</li>
-<li>老生代：经过多次垃圾回收仍然存活，存活周期较长的对象，如主控制器、服务器对象等。</li>
-</ul>
-<p>垃圾回收算法</p>
-<p>对垃圾回收算法来说，核心思想就是如何判断内存已经不再使用，常用垃圾回收算法有下面两种。</p>
-<ul>
-<li>1.引用计数（现代浏览器不再使用）</li>
-<li>2.标记清除（常用）</li>
-</ul>
-<p><strong>引用计数</strong></p>
-<p>引用计数算法定义“内存不再使用”的标准很简单，就是看一个对象是否有<strong>指向它的引用</strong>。如果没有其他对象指向它了，说明该对象已经不再需要了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个对象person，他有两个指向属性age和name的引用</span><br><span class="line">var person = &#123;</span><br><span class="line">    age: 12,</span><br><span class="line">    name: &apos;aaaa&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person.name = null; // 虽然name设置为null，但因为person对象还有指向name的引用，因此name不会回收</span><br><span class="line"></span><br><span class="line">var p = person; </span><br><span class="line">person = 1;         //原来的person对象被赋值为1，但因为有新引用p指向原person对象，因此它不会被回收</span><br><span class="line"></span><br><span class="line">p = null;           //原person对象已经没有引用，很快会被回收</span><br></pre></td></tr></table></figure>
-
-<p>引用计数有一个致命的问题，那就是<strong>循环引用</strong></p>
-<p>如果两个对象相互引用，尽管他们已不再使用，但是垃圾回收器不会进行回收，最终可能会导致内存泄露。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function cycle() &#123;</span><br><span class="line">    var o1 = &#123;&#125;;</span><br><span class="line">    var o2 = &#123;&#125;;</span><br><span class="line">    o1.a = o2;</span><br><span class="line">    o2.a = o1; </span><br><span class="line"></span><br><span class="line">    return &quot;cycle reference!&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cycle();</span><br></pre></td></tr></table></figure>
-
-<p>cycle函数执行完成之后，对象o1和o2实际上已经不再需要了，但根据引用计数的原则，他们之间的相互引用依然存在，因此这部分内存不会被回收。所以现代浏览器不再使用这个算法。</p>
-<p>但是IE依旧使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var div = document.createElement(&quot;div&quot;);</span><br><span class="line">div.onclick = function() &#123;</span><br><span class="line">    console.log(&quot;click&quot;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>上面的写法很常见，但是上面的例子就是一个循环引用。</p>
-<p>变量div有事件处理函数的引用，同时事件处理函数也有div的引用，因为div变量可在函数内被访问，所以循环引用就出现了。</p>
-<p><strong>标记清除（常用）</strong></p>
-<p>标记清除算法将“不再使用的对象”定义为“无法到达的对象”。即从根部（在JS中就是全局对象）出发定时扫描内存中的对象，凡是能从根部到达的对象，保留。那些从根部出发无法触及到的对象被标记为不再使用，稍后进行回收。无法触及的对象包含了没有引用的对象这个概念，但反之未必成立。所以上面的例子就可以正确被垃圾回收处理了。</p>
-<p>算法由以下几步组成：</p>
-<ul>
-<li><p>1、垃圾回收器创建了一个“roots”列表。roots 通常是代码中全局变量的引用。JavaScript 中，“window” 对象是一个全局变量，被当作 root 。window 对象总是存在，因此垃圾回收器可以检查它和它的所有子对象是否存在（即不是垃圾）；</p>
-</li>
-<li><p>2、所有的 roots 被检查和标记为激活（即不是垃圾）。所有的子对象也被递归地检查。从 root 开始的所有对象如果是可达的，它就不被当作垃圾。</p>
-</li>
-<li><p>3、所有未被标记的内存会被当做垃圾，收集器现在可以释放内存，归还给操作系统了。</p>
-</li>
-</ul>
-<p>现代的垃圾回收器改良了算法，但是本质是相同的：可达内存被标记，其余的被当作垃圾回收。</p>
-<h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。 对于不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）<br><strong>内存泄漏识别方法</strong></p>
-<ul>
-<li>1、<strong>浏览器方法</strong><br>打开开发者工具，选择 Memory<br>在右侧的Select profiling type字段里面勾选 timeline<br>点击左上角的录制按钮。<br>在页面上进行各种操作，模拟用户的使用情况。<br>一段时间后，点击左上角的 stop 按钮，面板上就会显示这段时间的内存占用情况。</li>
-<li>2、<strong>命令行方法</strong><br>使用 Node 提供的 process.memoryUsage 方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">console.log(process.memoryUsage());</span><br><span class="line"></span><br><span class="line">// 输出</span><br><span class="line">&#123; </span><br><span class="line">  rss: 27709440,		// resident set size，所有内存占用，包括指令区和堆栈</span><br><span class="line">  heapTotal: 5685248,   // &quot;堆&quot;占用的内存，包括用到的和没用到的</span><br><span class="line">  heapUsed: 3449392,	// 用到的堆的部分</span><br><span class="line">  external: 8772 		// V8 引擎内部的 C++ 对象占用的内存</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>判断内存泄漏，以heapUsed字段为准。</p>
-<p><strong>WeakMap</strong></p>
-<p>ES6 新出的两种数据结构：<code>WeakSet</code> 和 <code>WeakMap</code>，表示这是弱引用，它们对于值的引用都是不计入垃圾回收机制的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const wm = new WeakMap();</span><br><span class="line">const element = document.getElementById(&apos;example&apos;);</span><br><span class="line"></span><br><span class="line">wm.set(element, &apos;some information&apos;);</span><br><span class="line">wm.get(element) // &quot;some information&quot;</span><br></pre></td></tr></table></figure>
-
-<p>先新建一个 Weakmap 实例，然后将一个 DOM 节点作为键名存入该实例，并将一些附加信息作为键值，一起存放在 WeakMap 里面。这时，WeakMap 里面对element的引用就是弱引用，不会被计入垃圾回收机制。</p>
-<p><strong>四种常见的JS内存泄漏</strong></p>
-<p>1、<strong>意外的全局变量</strong></p>
-<p>未定义的变量会在全局对象创建一个新变量，如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function foo(arg) &#123;</span><br><span class="line">    bar = &quot;this is a hidden global variable&quot;;</span><br><span class="line">&#125;</span><br><span class="line">函数 foo 内部忘记使用 var ，实际上JS会把bar挂载到全局对象上，意外创建一个全局变量。</span><br><span class="line"></span><br><span class="line">function foo(arg) &#123;</span><br><span class="line">    window.bar = &quot;this is an explicit global variable&quot;;</span><br><span class="line">&#125;</span><br><span class="line">另一个意外的全局变量可能由 this 创建。</span><br><span class="line"></span><br><span class="line">function foo() &#123;</span><br><span class="line">    this.variable = &quot;potential accidental global&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Foo 调用自己，this 指向了全局对象（window）</span><br><span class="line">// 而不是 undefined</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-
-<p>解决方法：在 JavaScript 文件头部加上 ‘use strict’，使用严格模式避免意外的全局变量，此时上例中的this指向undefined。如果必须使用全局变量存储大量数据时，确保用完以后把它设置为 null 或者重新定义。</p>
-<p>2、<strong>被遗忘的计时器或回调函数</strong></p>
-<p>计时器setInterval代码很常见</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var someResource = getData();</span><br><span class="line">setInterval(function() &#123;</span><br><span class="line">    var node = document.getElementById(&apos;Node&apos;);</span><br><span class="line">    if(node) &#123;</span><br><span class="line">        // 处理 node 和 someResource</span><br><span class="line">        node.innerHTML = JSON.stringify(someResource));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
-
-<p>上面的例子表明，在节点node或者数据不再需要时，定时器依旧指向这些数据。所以哪怕当node节点被移除后，interval 仍旧存活并且垃圾回收器没办法回收，它的依赖也没办法被回收，除非终止定时器。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var element = document.getElementById(&apos;button&apos;);</span><br><span class="line">function onClick(event) &#123;</span><br><span class="line">    element.innerHTML = &apos;text&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">element.addEventListener(&apos;click&apos;, onClick);</span><br></pre></td></tr></table></figure>
-
-<p>对于上面观察者的例子，一旦它们不再需要（或者关联的对象变成不可达），明确地移除它们非常重要。老的 IE 6 是无法处理循环引用的。因为老版本的 IE 是无法检测 DOM 节点与 JavaScript 代码之间的循环引用，会导致内存泄漏。<br>但是，现代的浏览器（包括 IE 和 Microsoft Edge）使用了更先进的垃圾回收算法（标记清除），已经可以正确检测和处理循环引用了。即回收节点内存时，不必非要调用<code>removeEventListener</code>了。</p>
-<p>3、<strong>脱离 DOM 的引用</strong></p>
-<p>如果把DOM 存成字典（JSON 键值对）或者数组，此时，同样的 DOM 元素存在两个引用：一个在 DOM树中，另一个在字典中。那么将来需要把两个引用都清除。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var elements = &#123;</span><br><span class="line">    button: document.getElementById(&apos;button&apos;),</span><br><span class="line">    image: document.getElementById(&apos;image&apos;),</span><br><span class="line">    text: document.getElementById(&apos;text&apos;)</span><br><span class="line">&#125;;</span><br><span class="line">function doStuff() &#123;</span><br><span class="line">    image.src = &apos;http://some.url/image&apos;;</span><br><span class="line">    button.click();</span><br><span class="line">    console.log(text.innerHTML);</span><br><span class="line">    // 更多逻辑</span><br><span class="line">&#125;</span><br><span class="line">function removeButton() &#123;</span><br><span class="line">    // 按钮是 body 的后代元素</span><br><span class="line">    document.body.removeChild(document.getElementById(&apos;button&apos;));</span><br><span class="line">    // 此时，仍旧存在一个全局的 #button 的引用</span><br><span class="line">    // elements 字典。button 元素仍旧在内存中，不能被 GC 回收。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果代码中保存了表格某一个<code>&lt;td&gt;</code> 的引用。将来决定删除整个表格的时候，直觉认为 GC 会回收除了已保存的<code>&lt;td&gt;</code>以外的其它节点。实际情况并非如此：此 <code>&lt;td&gt;</code> 是表格的子节点，子元素与父元素是引用关系。由于代码保留了<code>&lt;td&gt;</code> 的引用，导致整个表格仍待在内存中。所以保存 DOM 元素引用的时候，要小心谨慎。</p>
-<p>4.<strong>闭包</strong></p>
-<p>闭包的关键是匿名函数可以访问父级作用域的变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var theThing = null;</span><br><span class="line">var replaceThing = function () &#123;</span><br><span class="line">  var originalThing = theThing;</span><br><span class="line">  var unused = function () &#123;</span><br><span class="line">    if (originalThing)</span><br><span class="line">      console.log(&quot;hi&quot;);</span><br><span class="line">  &#125;;</span><br><span class="line">    </span><br><span class="line">  theThing = &#123;</span><br><span class="line">    longStr: new Array(1000000).join(&apos;*&apos;),</span><br><span class="line">    someMethod: function () &#123;</span><br><span class="line">      console.log(someMessage);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">setInterval(replaceThing, 1000);</span><br></pre></td></tr></table></figure>
-
-<p>每次调用 replaceThing ，theThing 得到一个包含一个大数组和一个新闭包（someMethod）的新对象。同时，变量 unused 是一个引用 originalThing 的闭包（先前的 replaceThing 又调用了 theThing ）。someMethod 可以通过 theThing 使用，someMethod 与 unused 分享闭包作用域，尽管 unused 从未使用，它引用的 originalThing 迫使它保留在内存中（防止被回收）。</p>
-<p>解决方法：在 replaceThing 的最后添加 originalThing = null 。</p>
-
-        </div>
-    
-
-</div>
-            
+                    小白提升记
                 
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2019/09/14/面试/">
-                Hello World
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-09-14</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        </div>
-    
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
-                </p>
             </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/14/面试1/">Untitled</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/14/面试/">Hello World</a>
-            </li>
-            
-        </ul>
-    </div>
 
-
-
-            
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://twitter.com/?lang=en">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://www.facebook.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://www.instagram.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://dribbble.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://plus.google.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-google-plus"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://www.behance.net/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://500px.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:test@example.com">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
+            <div class="description center-align">
+                
+                    不会RAP的厨子不是好程序员
+                
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+    </div>
+</div>
+<script>
+// 每天切换 banner 图.  Switch banner image every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
+
+            <div class="cover-btns">
+                <a href="#indexCard" class="waves-effect waves-light btn">
+                    <i class="fa fa-angle-double-down"></i>Start
+                </a>
+
+                
+                <a href="https://github.com/abnerliushitong" class="waves-effect waves-light btn" target="_blank">
+                    <i class="fa fa-github-alt"></i>Github
+                </a>
+                
+            </div>
+            <div class="cover-social-link">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        </div>
+    </div>
+
+    
+    
+
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/11.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">作用域</div>
+                    <div class="description center-align">
+                    
+                        这期完全复刻木易老师的博客，因为写的很好 我这里只是自己复习，没有商用
+木易老师博客地址
+执行上下文执行上下文总共有三种类型：
+全局执行上下文：只有一个，浏览器中的全局对象就是 window 对象，this 指向这个全局对象。
+函数执行上下
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2018/09/07/面试/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>Read more
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    
+</div>
+
+<script>
+$(function () {
+    let coverSlider = $('.carousel');
+    coverSlider.carousel({
+        duration: Number('120'),
+        fullWidth: true,
+        indicators: 'true' === 'true'
+    });
+
+    let carouselIntervalId;
+    
+    // Loop to call the next cover article picture.
+    let autoCarousel = function() {
+        carouselIntervalId = setInterval(function () {
+            coverSlider.carousel('next');
+        }, 5000);
+    };
+    autoCarousel();
+    
+
+    let restartPlay = function () {
+        
+        clearInterval(carouselIntervalId);
+        autoCarousel();
+        
+    };
+
+    
+    // prev and next cover post.
+    $('#prev-cover').click(function () {
+        coverSlider.carousel('prev');
+        restartPlay();
+    });
+    $('#next-cover').click(function () {
+        coverSlider.carousel('next');
+        restartPlay();
+    });
+    
+});
+</script>
+
+
+
+<main class="content">
+
+    
+    <div id="indexCard" class="index-card">
+        <div class="container ">
+            <div class="card">
+                <div class="card-content">
+                    
+                        <div class="dream">
+    
+    <div class="title center-align">
+        <i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;座右铭
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+            业精于勤，荒于嬉；行成于思，毁于随。
+        </div>
+    </div>
+</div>
+                    
+
+                    
+
+                    
+
+                    <div id="recommend-sections" class="recommend">
+                        
+
+
+
+
+
+<div class="title"><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;Recommended Posts</div>
+
+<div class="row">
+
+    
+    
+    <div class="col s12" >
+        <div class="post-card" style="background-image: url('/medias/featureimages/11.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/JS/" class="category" target="_blank">JS</a>
+                    
+                </div>
+                <a href="/2018/09/07/面试/" target="_blank">
+                    <h3 class="post-title">作用域</h3>
+                </a>
+                <p class="post-description">这期完全复刻木易老师的博客，因为写的很好 我这里只是自己复习，没有商用
+木易老师博客地址
+执行上下文执行上下文总共有三种类型：
+全局执行上下文：只有一个，浏览器中的全局对</p>
+                <a href="/2018/09/07/面试/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>Read more
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/09/07/面试/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="作用域">
+                            
+                            <span class="card-title">作用域</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                这期完全复刻木易老师的博客，因为写的很好 我这里只是自己复习，没有商用
+木易老师博客地址
+执行上下文执行上下文总共有三种类型：
+全局执行上下文：只有一个，浏览器中的全局对象就是 window 对象，this 指向这个全局对象。
+函数执行上下
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/JS/" class="post-category" target="_blank">
+                                    JS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/执行栈/" target="_blank">
+                            <span class="chip bg-color">执行栈</span>
+                        </a>
+                        
+                        <a href="/tags/内存/" target="_blank">
+                            <span class="chip bg-color">内存</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+
+</main>
+
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 本站由&nbsp;&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>&nbsp;基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>&nbsp;主题搭建
+            <br>
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">4.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="fa fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fa fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            <br>
+            <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+            <script>
+                var now = new Date();
+
+                function createtime() {
+                    var grt = new Date("06/28/2019 00:00:00");
+                    now.setTime(now.getTime() + 250);
+                    days = (now - grt) / 1000 / 60 / 60 / 24;
+                    dnum = Math.floor(days);
+                    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                    hnum = Math.floor(hours);
+                    if (String(hnum).length == 1) {
+                        hnum = "0" + hnum;
+                    }
+                    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                    mnum = Math.floor(minutes);
+                    if (String(mnum).length == 1) {
+                        mnum = "0" + mnum;
+                    }
+                    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                    snum = Math.round(seconds);
+                    if (String(snum).length == 1) {
+                        snum = "0" + snum;
+                    }
+                    document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+                }
+                setInterval("createtime()", 250);
+            </script>
+            
+             -->
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
 </footer>
 
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-<script src="/js/main.js"></script>
-
-<!-- Disqus Comments -->
+<div class="progress-bar"></div>
 
 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-</body>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
