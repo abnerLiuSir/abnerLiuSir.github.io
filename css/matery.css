@@ -1,5 +1,6 @@
 /*全局基础样式*/
 /*小屏幕下(手机类)的样式*/
+
 @media only screen and (max-width: 601px) {
     .container {
         width: 95%;
@@ -1666,7 +1667,7 @@ footer .copy-right {
 .top-scroll {
     display: none;
     position: fixed;
-    right: 20px;
+    left: 20px;
     bottom: 15px;
     padding-top: 15px;
     margin-bottom: 0;
@@ -1790,12 +1791,4 @@ footer .copy-right {
     margin-top: 0.2em;
     /* bg color = bg color under block */
     background: white;
-}
-
-/* 光标样式 */
-* {
-    cursor: url("../medias/cursor/normal.png"),auto!important
-}
-:active {
-    cursor: url("../medias/cursor/active.png"),auto!important
 }

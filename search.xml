@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>基本数据类型</title>
+      <link href="/2018/09/07/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+      <url>/2018/09/07/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="内置类型"><a href="#内置类型" class="headerlink" title="内置类型"></a>内置类型</h1><p>JS 中分为七种内置类型，七种内置类型又分为两大类型：基本类型和对象（Object）。 基本类型有六种： <code>null</code>，<code>undefined</code>，<code>boolean</code>，<code>number</code>，<code>string</code>，<code>symbol</code>。</p><h2 id="Typeof"><a href="#Typeof" class="headerlink" title="Typeof"></a>Typeof</h2><p>typeof 对于基本类型，除了 null 都可以显示正确的类型<br><img src="https://user-gold-cdn.xitu.io/2019/8/8/16c6ee7529bae2d7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt><br>000 开头代表是对象，然而 null 表示 为全零，所以将它错误的判断为 object 。</p><h2 id="instanceof-和-Object-prototype-toString-call"><a href="#instanceof-和-Object-prototype-toString-call" class="headerlink" title="instanceof 和 Object.prototype.toString.call"></a>instanceof 和 Object.prototype.toString.call</h2><p>typeof 无法判断数组，对象.</p><p>可以通过 Object.prototype.toString. call(xx)。这样我们就可以获得类似 [Object Type] 的字符串。</p><p>instanceof 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链 中是不是能找到类型的 prototype。</p><p>类型转换<br>ToString负责处理非字符串到字符串的强制类型转换</p><p>null转换为’null’,undefined转换为’undefined’,其他基本类型都调用基本类型的包装对象属性toString()并返回值。</p><pre><code>const a = 123; const _a = new Number(123); console.log(String(a), _a.toString());               //&#39;123&#39; &#39;123&#39; 数字的字符串化遵循通用规则，但是极小极大数字使用指数形式const a = 1.07*1000*1000*1000*1000*1000*1000*1000;console.log(String(a));                               //&#39;1.07e+21&#39;</code></pre><p>对于普通对象来说，除非自行定义，否则toString()返回Object.prototype.toString()的值,其他对象有自己的toString()方法则调用自己的该方法.</p><p>const b = {};<br>console.log(String(b));                                //[object object]<br>对于数组来说会转成以“，”拼接各项的字符串</p><p>const arr = [{s:1},2,3]<br>console.log(arr.toString())                           //“[object Object],2,3”<br>ToNumber负责处理非数字到数字的强制类型转换</p><p>true转换为1，false转换为0，undefined转换为NaN，null转换为0</p><p>console.log(Number(null));                                //0<br>console.log(Number(undefined));                           //NaN<br>console.log(Number(true));                                //1<br>console.log(Number(false));                               //0<br>对字符串的处理遵循数字常量的相关规定/语法，处理失败时返回NaN</p><p>console.log(Number(‘123’));                               //123<br>console.log(Number(‘0b111’));                             //7<br>console.log(Number(‘0o123’));                             //83<br>console.log(Number(‘0x123’));                             //291<br>console.log(Number(‘123a’));                              //NaN<br>console.log(Number(‘a123’));                              //NaN</p><p>对象（包括数组）会首先按照ToPrimitive抽象操作被转换为相应的基本类型值，再按照前两条规则处理；如果某个对象即不存在valueOf方法也不存在toString方法，则会产生TypeError错误（例如Object.create(null)不存在以上两种方法）<br>const arr = [1, 2, 3];<br>console.log(Number(arr));                               //NaN<br>console.log(Number(arr.toString()));                    //NaN</p><p>const num = new Number(123);<br>console.log(Number(num));                               //123<br>console.log(Number(num.valueOf()));                     //123</p><p>const bool = new Boolean(true);<br>console.log(bool.valueOf());                           //true<br>console.log(Number(bool));                             //1<br>console.log(Number(bool.valueOf()));                   //1</p><p>const obj1 = {<br>  toString:()=&gt;”21”<br>}</p><p>const obj2 = {<br>  valueOf:()=&gt;”42”,<br>  toString:()=&gt;”21”<br>}</p><p>const obj3 = {<br>  a:1<br>}<br>console.log(Number(obj1));                              //21<br>console.log(Number(obj2));                              //42<br>console.log(obj3.toString());                           //[object Object]<br>console.log(Number(obj3));                              //NaN</p><p>const obj = Object.create(null);<br>console.log(Number(obj));                               //TypeError<br>ToBoolean负责处理非布尔值到布尔值的强制类型转换，规则如下</p><p>可以被转换为false的值（undefined，null，false， 0和NaN，’’）</p><p>其他都被转换为true（切记：封装对象均被转为true）</p><p>隐式强制类型转换<br>隐式强制类型转换为字符串</p><p>一元运算符加号（+）首先把非基本类型通过ToPrimitive抽象操作转换为基本类型，如果加号中的两项有一项是字符串，另一项则进行ToString操作，进行字符串拼接，如果是布尔值加数字，则对布尔进行ToNumber操作再求和</p><p>隐式强制类型转换为数字，通过一元运算符-、/、*转换，遵循ToNumber的抽象值操作规则</p><p>隐式强制类型转换为布尔值</p><p>if(..)语句中的条件判断表达式</p><p>for(..;..;..)语句的第二个条件判断表达式</p><p>while(..)和do..while(..)的条件判断表达式</p><p>?:中的条件判断表达式</p><p>逻辑运算符||和&amp;&amp;左边的操作数（a||b等同于a?a:b，a&amp;&amp;b等同于a?b:a）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据类型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>作用域</title>
       <link href="/2018/09/07/%E9%9D%A2%E8%AF%95/"/>
       <url>/2018/09/07/%E9%9D%A2%E8%AF%95/</url>
