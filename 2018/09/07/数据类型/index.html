@@ -392,14 +392,14 @@ Typeoftypeof 对于基本类">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        940
+                        974
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        4 分
                     </div>
                     
                 
@@ -417,32 +417,60 @@ Typeoftypeof 对于基本类">
             <div id="articleContent">
                 <h1 id="内置类型"><a href="#内置类型" class="headerlink" title="内置类型"></a>内置类型</h1><p>JS 中分为七种内置类型，七种内置类型又分为两大类型：基本类型和对象（Object）。 基本类型有六种： <code>null</code>，<code>undefined</code>，<code>boolean</code>，<code>number</code>，<code>string</code>，<code>symbol</code>。</p>
 <h2 id="Typeof"><a href="#Typeof" class="headerlink" title="Typeof"></a>Typeof</h2><p>typeof 对于基本类型，除了 null 都可以显示正确的类型<br><img src="https://user-gold-cdn.xitu.io/2019/8/8/16c6ee7529bae2d7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt><br>000 开头代表是对象，然而 null 表示 为全零，所以将它错误的判断为 object 。</p>
-<h2 id="instanceof-和-Object-prototype-toString-call"><a href="#instanceof-和-Object-prototype-toString-call" class="headerlink" title="instanceof 和 Object.prototype.toString.call"></a>instanceof 和 Object.prototype.toString.call</h2><p>typeof 无法判断数组，对象.</p>
-<p>可以通过 Object.prototype.toString. call(xx)。这样我们就可以获得类似 [Object Type] 的字符串。</p>
-<p>instanceof 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链 中是不是能找到类型的 prototype。</p>
-<p>类型转换<br>ToString负责处理非字符串到字符串的强制类型转换</p>
-<p>null转换为’null’,undefined转换为’undefined’,其他基本类型都调用基本类型的包装对象属性toString()并返回值。</p>
-<pre><code>const a = 123; 
+<h2 id="instanceof-和-Object-prototype-toString-call"><a href="#instanceof-和-Object-prototype-toString-call" class="headerlink" title="instanceof 和 Object.prototype.toString.call"></a>instanceof 和 Object.prototype.toString.call</h2><p>typeof 无法判断数组，对象.<br>可以通过<code>Object.prototype.toString.call(xx)</code>。这样我们就可以获得类似 <code>[Object Type]</code> 的字符串。<br><code>instanceof</code> 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链 中是不是能找到类型的 <code>prototype</code>。</p>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><ul>
+<li><code>ToString</code>负责处理非字符串到字符串的强制类型转换<br>null转换为’null’,undefined转换为’undefined’,其他基本类型都调用基本类型的包装对象属性toString()并返回值。<pre><code>const a = 123; 
 const _a = new Number(123); 
 console.log(String(a), _a.toString());               //&#39;123&#39; &#39;123&#39; 
 数字的字符串化遵循通用规则，但是极小极大数字使用指数形式
 const a = 1.07*1000*1000*1000*1000*1000*1000*1000;
-console.log(String(a));                               //&#39;1.07e+21&#39;</code></pre><p>对于普通对象来说，除非自行定义，否则toString()返回Object.prototype.toString()的值,其他对象有自己的toString()方法则调用自己的该方法.</p>
-<p>const b = {};<br>console.log(String(b));                                //[object object]<br>对于数组来说会转成以“，”拼接各项的字符串</p>
-<p>const arr = [{s:1},2,3]<br>console.log(arr.toString())                           //“[object Object],2,3”<br>ToNumber负责处理非数字到数字的强制类型转换</p>
+console.log(String(a));                               //&#39;1.07e+21&#39;</code></pre>对于普通对象来说，除非自行定义，否则<code>toString()</code>返回<code>Object.prototype.toString()</code>的值,其他对象有自己的<code>toString()</code>方法则调用自己的该方法.<pre><code>const b = {};
+console.log(String(b));                                //[object object]</code></pre>对于数组来说会转成以“，”拼接各项的字符串<pre><code>const arr = [{s:1},2,3]
+console.log(arr.toString())                           //&quot;[object Object],2,3&quot;</code></pre></li>
+<li><code>ToNumber</code>负责处理非数字到数字的强制类型转换</li>
+</ul>
 <p>true转换为1，false转换为0，undefined转换为NaN，null转换为0</p>
-<p>console.log(Number(null));                                //0<br>console.log(Number(undefined));                           //NaN<br>console.log(Number(true));                                //1<br>console.log(Number(false));                               //0<br>对字符串的处理遵循数字常量的相关规定/语法，处理失败时返回NaN</p>
-<p>console.log(Number(‘123’));                               //123<br>console.log(Number(‘0b111’));                             //7<br>console.log(Number(‘0o123’));                             //83<br>console.log(Number(‘0x123’));                             //291<br>console.log(Number(‘123a’));                              //NaN<br>console.log(Number(‘a123’));                              //NaN</p>
-<p>对象（包括数组）会首先按照ToPrimitive抽象操作被转换为相应的基本类型值，再按照前两条规则处理；如果某个对象即不存在valueOf方法也不存在toString方法，则会产生TypeError错误（例如Object.create(null)不存在以上两种方法）<br>const arr = [1, 2, 3];<br>console.log(Number(arr));                               //NaN<br>console.log(Number(arr.toString()));                    //NaN</p>
-<p>const num = new Number(123);<br>console.log(Number(num));                               //123<br>console.log(Number(num.valueOf()));                     //123</p>
-<p>const bool = new Boolean(true);<br>console.log(bool.valueOf());                           //true<br>console.log(Number(bool));                             //1<br>console.log(Number(bool.valueOf()));                   //1</p>
-<p>const obj1 = {<br>  toString:()=&gt;”21”<br>}</p>
-<p>const obj2 = {<br>  valueOf:()=&gt;”42”,<br>  toString:()=&gt;”21”<br>}</p>
-<p>const obj3 = {<br>  a:1<br>}<br>console.log(Number(obj1));                              //21<br>console.log(Number(obj2));                              //42<br>console.log(obj3.toString());                           //[object Object]<br>console.log(Number(obj3));                              //NaN</p>
-<p>const obj = Object.create(null);<br>console.log(Number(obj));                               //TypeError<br>ToBoolean负责处理非布尔值到布尔值的强制类型转换，规则如下</p>
-<p>可以被转换为false的值（undefined，null，false， 0和NaN，’’）</p>
+<pre><code>console.log(Number(null));                                //0 
+console.log(Number(undefined));                           //NaN
+console.log(Number(true));                                //1
+console.log(Number(false));                               //0</code></pre><p>对字符串的处理遵循数字常量的相关规定/语法，处理失败时返回NaN</p>
+<pre><code>console.log(Number(&#39;123&#39;));                               //123
+console.log(Number(&#39;0b111&#39;));                             //7
+console.log(Number(&#39;0o123&#39;));                             //83
+console.log(Number(&#39;0x123&#39;));                             //291
+console.log(Number(&#39;123a&#39;));                              //NaN
+console.log(Number(&#39;a123&#39;));                              //NaN</code></pre><p>对象（包括数组）会首先按照<code>ToPrimitive</code>抽象操作被转换为相应的基本类型值，再按照前两条规则处理；如果某个对象即不存在<code>valueOf</code>方法也不存在<code>toString</code>方法，则会产生<code>TypeError</code>错误（例如Object.create(null)不存在以上两种方法）</p>
+<pre><code>const arr = [1, 2, 3]; 
+console.log(Number(arr));                               //NaN
+console.log(Number(arr.toString()));                    //NaN
+const num = new Number(123);
+console.log(Number(num));                               //123
+console.log(Number(num.valueOf()));                     //123
+const bool = new Boolean(true);
+console.log(bool.valueOf());                           //true
+console.log(Number(bool));                             //1
+console.log(Number(bool.valueOf()));                   //1
+const obj1 = {
+  toString:()=&gt;&quot;21&quot;
+}
+const obj2 = {
+  valueOf:()=&gt;&quot;42&quot;,
+  toString:()=&gt;&quot;21&quot;
+}
+const obj3 = {
+  a:1
+}
+console.log(Number(obj1));                              //21
+console.log(Number(obj2));                              //42
+console.log(obj3.toString());                           //[object Object]
+console.log(Number(obj3));                              //NaN
+const obj = Object.create(null);
+console.log(Number(obj));                               //TypeError</code></pre><ul>
+<li><code>ToBoolean</code>负责处理非布尔值到布尔值的强制类型转换，规则如下</li>
+</ul>
+<p>可以被转换为<code>false</code>的值（<code>undefined</code>，<code>null</code>，<code>false</code>， <code>0</code>和<code>NaN</code>，’’）</p>
 <p>其他都被转换为true（切记：封装对象均被转为true）</p>
-<p>隐式强制类型转换<br>隐式强制类型转换为字符串</p>
+<h2 id="隐式强制类型转换"><a href="#隐式强制类型转换" class="headerlink" title="隐式强制类型转换"></a>隐式强制类型转换</h2><p>隐式强制类型转换为字符串</p>
 <p>一元运算符加号（+）首先把非基本类型通过ToPrimitive抽象操作转换为基本类型，如果加号中的两项有一项是字符串，另一项则进行ToString操作，进行字符串拼接，如果是布尔值加数字，则对布尔进行ToNumber操作再求和</p>
 <p>隐式强制类型转换为数字，通过一元运算符-、/、*转换，遵循ToNumber的抽象值操作规则</p>
 <p>隐式强制类型转换为布尔值</p>
@@ -527,9 +555,65 @@ console.log(String(a));                               //&#39;1.07e+21&#39;</code
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/09/07/执行栈/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="作用域">
+                        
+                        <span class="card-title">作用域</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JS/" class="post-category" target="_blank">
+                                    JS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/执行栈/" target="_blank">
+                        <span class="chip bg-color">执行栈</span>
+                    </a>
+                    
+                    <a href="/tags/内存/" target="_blank">
+                        <span class="chip bg-color">内存</span>
+                    </a>
+                    
+                    <a href="/tags/提升/" target="_blank">
+                        <span class="chip bg-color">提升</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
             </div>
             <div class="card">
                 <a href="/2018/09/07/数据类型/">
@@ -544,8 +628,7 @@ console.log(String(a));                               //&#39;1.07e+21&#39;</code
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            内置类型JS 中分为七种内置类型，七种内置类型又分为两大类型：基本类型和对象（Object）。 基本类型有六种： null，undefined，boolean，number，string，symbol。
-Typeoftypeof 对于基本类
+                            本篇博客解析了JS的数据类型，检测方法和相互转换
                         
                     </div>
                     <div class="publish-info">
@@ -570,63 +653,6 @@ Typeoftypeof 对于基本类
                     
                     <a href="/tags/数据类型/" target="_blank">
                         <span class="chip bg-color">数据类型</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/09/07/面试/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="作用域">
-                        
-                        <span class="card-title">作用域</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            这期完全复刻木易老师的博客，因为写的很好 我这里只是自己复习，没有商用
-木易老师博客地址
-执行上下文执行上下文总共有三种类型：
-全局执行上下文：只有一个，浏览器中的全局对象就是 window 对象，this 指向这个全局对象。
-函数执行上下
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JS/" class="post-category" target="_blank">
-                                    JS
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/执行栈/" target="_blank">
-                        <span class="chip bg-color">执行栈</span>
-                    </a>
-                    
-                    <a href="/tags/内存/" target="_blank">
-                        <span class="chip bg-color">内存</span>
                     </a>
                     
                 </div>
