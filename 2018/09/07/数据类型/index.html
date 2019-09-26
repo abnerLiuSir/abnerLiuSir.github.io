@@ -333,7 +333,7 @@ Typeoftypeof 对于基本类">
 
     #floating-toc-btn {
         position: fixed;
-        left: 20px;
+        right: 20px;
         bottom: 76px;
         padding-top: 15px;
         margin-bottom: 0;
@@ -392,7 +392,7 @@ Typeoftypeof 对于基本类">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        974
+                        972
                     </div>
                     
 
@@ -418,18 +418,17 @@ Typeoftypeof 对于基本类">
                 <h1 id="内置类型"><a href="#内置类型" class="headerlink" title="内置类型"></a>内置类型</h1><p>JS 中分为七种内置类型，七种内置类型又分为两大类型：基本类型和对象（Object）。 基本类型有六种： <code>null</code>，<code>undefined</code>，<code>boolean</code>，<code>number</code>，<code>string</code>，<code>symbol</code>。</p>
 <h2 id="Typeof"><a href="#Typeof" class="headerlink" title="Typeof"></a>Typeof</h2><p>typeof 对于基本类型，除了 null 都可以显示正确的类型<br><img src="https://user-gold-cdn.xitu.io/2019/8/8/16c6ee7529bae2d7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt><br>000 开头代表是对象，然而 null 表示 为全零，所以将它错误的判断为 object 。</p>
 <h2 id="instanceof-和-Object-prototype-toString-call"><a href="#instanceof-和-Object-prototype-toString-call" class="headerlink" title="instanceof 和 Object.prototype.toString.call"></a>instanceof 和 Object.prototype.toString.call</h2><p>typeof 无法判断数组，对象.<br>可以通过<code>Object.prototype.toString.call(xx)</code>。这样我们就可以获得类似 <code>[Object Type]</code> 的字符串。<br><code>instanceof</code> 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链 中是不是能找到类型的 <code>prototype</code>。</p>
-<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><ul>
-<li><code>ToString</code>负责处理非字符串到字符串的强制类型转换<br>null转换为’null’,undefined转换为’undefined’,其他基本类型都调用基本类型的包装对象属性toString()并返回值。<pre><code>const a = 123; 
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="ToString负责处理非字符串到字符串的强制类型转换"><a href="#ToString负责处理非字符串到字符串的强制类型转换" class="headerlink" title="ToString负责处理非字符串到字符串的强制类型转换"></a><code>ToString</code>负责处理非字符串到字符串的强制类型转换</h3><p>null转换为’null’,undefined转换为’undefined’,其他基本类型都调用基本类型的包装对象属性toString()并返回值。</p>
+<pre><code>const a = 123; 
 const _a = new Number(123); 
 console.log(String(a), _a.toString());               //&#39;123&#39; &#39;123&#39; 
 数字的字符串化遵循通用规则，但是极小极大数字使用指数形式
 const a = 1.07*1000*1000*1000*1000*1000*1000*1000;
-console.log(String(a));                               //&#39;1.07e+21&#39;</code></pre>对于普通对象来说，除非自行定义，否则<code>toString()</code>返回<code>Object.prototype.toString()</code>的值,其他对象有自己的<code>toString()</code>方法则调用自己的该方法.<pre><code>const b = {};
-console.log(String(b));                                //[object object]</code></pre>对于数组来说会转成以“，”拼接各项的字符串<pre><code>const arr = [{s:1},2,3]
-console.log(arr.toString())                           //&quot;[object Object],2,3&quot;</code></pre></li>
-<li><code>ToNumber</code>负责处理非数字到数字的强制类型转换</li>
-</ul>
-<p>true转换为1，false转换为0，undefined转换为NaN，null转换为0</p>
+console.log(String(a));                               //&#39;1.07e+21&#39;</code></pre><p>对于普通对象来说，除非自行定义，否则<code>toString()</code>返回<code>Object.prototype.toString()</code>的值,其他对象有自己的<code>toString()</code>方法则调用自己的该方法.</p>
+<pre><code>const b = {};
+console.log(String(b));                                //[object object]</code></pre><p>对于数组来说会转成以“，”拼接各项的字符串</p>
+<pre><code>const arr = [{s:1},2,3]
+console.log(arr.toString())                           //&quot;[object Object],2,3&quot;</code></pre><h3 id="ToNumber负责处理非数字到数字的强制类型转换"><a href="#ToNumber负责处理非数字到数字的强制类型转换" class="headerlink" title="ToNumber负责处理非数字到数字的强制类型转换"></a><code>ToNumber</code>负责处理非数字到数字的强制类型转换</h3><p>true转换为1，false转换为0，undefined转换为NaN，null转换为0</p>
 <pre><code>console.log(Number(null));                                //0 
 console.log(Number(undefined));                           //NaN
 console.log(Number(true));                                //1
@@ -465,10 +464,7 @@ console.log(Number(obj2));                              //42
 console.log(obj3.toString());                           //[object Object]
 console.log(Number(obj3));                              //NaN
 const obj = Object.create(null);
-console.log(Number(obj));                               //TypeError</code></pre><ul>
-<li><code>ToBoolean</code>负责处理非布尔值到布尔值的强制类型转换，规则如下</li>
-</ul>
-<p>可以被转换为<code>false</code>的值（<code>undefined</code>，<code>null</code>，<code>false</code>， <code>0</code>和<code>NaN</code>，’’）</p>
+console.log(Number(obj));                               //TypeError</code></pre><h3 id="ToBoolean负责处理非布尔值到布尔值的强制类型转换，规则如下"><a href="#ToBoolean负责处理非布尔值到布尔值的强制类型转换，规则如下" class="headerlink" title="ToBoolean负责处理非布尔值到布尔值的强制类型转换，规则如下"></a><code>ToBoolean</code>负责处理非布尔值到布尔值的强制类型转换，规则如下</h3><p>可以被转换为<code>false</code>的值（<code>undefined</code>，<code>null</code>，<code>false</code>， <code>0</code>和<code>NaN</code>，’’）</p>
 <p>其他都被转换为true（切记：封装对象均被转为true）</p>
 <h2 id="隐式强制类型转换"><a href="#隐式强制类型转换" class="headerlink" title="隐式强制类型转换"></a>隐式强制类型转换</h2><p>隐式强制类型转换为字符串</p>
 <p>一元运算符加号（+）首先把非基本类型通过ToPrimitive抽象操作转换为基本类型，如果加号中的两项有一项是字符串，另一项则进行ToString操作，进行字符串拼接，如果是布尔值加数字，则对布尔进行ToNumber操作再求和</p>
@@ -613,22 +609,22 @@ console.log(Number(obj));                               //TypeError</code></pre>
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/09/07/数据类型/">
+                <a href="/2018/09/07/调用栈/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="基本数据类型">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="调用栈">
                         
-                        <span class="card-title">基本数据类型</span>
+                        <span class="card-title">调用栈</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本篇博客解析了JS的数据类型，检测方法和相互转换
+                            本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升
                         
                     </div>
                     <div class="publish-info">
@@ -647,12 +643,31 @@ console.log(Number(obj));                               //TypeError</code></pre>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/数据类型/" target="_blank">
-                        <span class="chip bg-color">数据类型</span>
+                    <a href="/tags/内存/" target="_blank">
+                        <span class="chip bg-color">内存</span>
+                    </a>
+                    
+                    <a href="/tags/提升/" target="_blank">
+                        <span class="chip bg-color">提升</span>
+                    </a>
+                    
+                    <a href="/tags/调用栈/" target="_blank">
+                        <span class="chip bg-color">调用栈</span>
+                    </a>
+                    
+                    <a href="/tags/内存泄漏/" target="_blank">
+                        <span class="chip bg-color">内存泄漏</span>
+                    </a>
+                    
+                    <a href="/tags/上下文/" target="_blank">
+                        <span class="chip bg-color">上下文</span>
+                    </a>
+                    
+                    <a href="/tags/垃圾回收算法/" target="_blank">
+                        <span class="chip bg-color">垃圾回收算法</span>
                     </a>
                     
                 </div>
@@ -773,7 +788,7 @@ console.log(Number(obj));                               //TypeError</code></pre>
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.5k</span>&nbsp;字
+                class="white-color">10k</span>&nbsp;字
             
             
             
