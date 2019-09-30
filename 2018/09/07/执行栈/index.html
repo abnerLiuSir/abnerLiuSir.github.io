@@ -364,16 +364,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/执行栈/" target="_blank">
-                                <span class="chip bg-color">执行栈</span>
-                            </a>
-                        
                             <a href="/tags/内存/" target="_blank">
                                 <span class="chip bg-color">内存</span>
                             </a>
                         
                             <a href="/tags/提升/" target="_blank">
                                 <span class="chip bg-color">提升</span>
+                            </a>
+                        
+                            <a href="/tags/执行栈/" target="_blank">
+                                <span class="chip bg-color">执行栈</span>
                             </a>
                         
                     </div>
@@ -550,11 +550,9 @@ FunctionExectionContext = {
     outer: &lt;GlobalLexicalEnvironment&gt;  
   }  
 }</code></pre><h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><ul>
-<li><p>1.变量提升</p>
-<pre><code>console.log(num); //undefined
+<li>1.变量提升<pre><code>console.log(num); //undefined
 var num = 1;</code></pre></li>
-<li><p>2.函数提升</p>
-<pre><code>foo();  // foo2
+<li>2.函数提升<pre><code>foo();  // foo2
 var foo = function() {
   console.log(&#39;foo1&#39;);
 }
@@ -562,10 +560,9 @@ foo();  // foo1，foo重新赋值
 function foo() {
   console.log(&#39;foo2&#39;);
 }
-foo(); // foo1</code></pre><h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><p>因为JS引擎创建了很多的执行上下文，所以JS引擎创建了执行上下文栈（Execution context stack，ECS）来管理执行上下文。</p>
-</li>
+foo(); // foo1</code></pre></li>
 </ul>
-<p>有如下两段代码，执行的结果是一样的，但是两段代码究竟有什么不同？</p>
+<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><p>因为JS引擎创建了很多的执行上下文，所以JS引擎创建了执行上下文栈（Execution context stack，ECS）来管理执行上下文。<br>有如下两段代码，执行的结果是一样的，但是两段代码究竟有什么不同？</p>
 <pre><code>var scope = &quot;global scope&quot;;
 function checkscope(){
     var scope = &quot;local scope&quot;;
@@ -657,8 +654,7 @@ foo(1);</code></pre><p>对于上面的代码，这个时候的AO是</p>
 <li>1.基本类型：–&gt; 栈内存（不包含闭包中的变量）</li>
 <li>2.引用类型：–&gt; 堆内存</li>
 </ul>
-<p><strong>内存回收</strong></p>
-<p>JavaScript有自动垃圾收集机制，垃圾收集器会每隔一段时间就执行一次释放操作，找出那些不再继续使用的值，然后释放其占用的内存。</p>
+<h3 id="内存回收"><a href="#内存回收" class="headerlink" title="内存回收"></a>内存回收</h3><p>JavaScript有自动垃圾收集机制，垃圾收集器会每隔一段时间就执行一次释放操作，找出那些不再继续使用的值，然后释放其占用的内存。</p>
 <p><strong>局部变量和全局变量的销毁</strong></p>
 <ul>
 <li>局部变量：局部作用域中，当函数执行完毕，局部变量也就没有存在的必要了，因此垃圾收集器很容易做出判断并回收。</li>
@@ -674,14 +670,12 @@ foo(1);</code></pre><p>对于上面的代码，这个时候的AO是</p>
 <li>新生代：存活周期较短的JS对象，如临时变量、字符串等。</li>
 <li>老生代：经过多次垃圾回收仍然存活，存活周期较长的对象，如主控制器、服务器对象等。</li>
 </ul>
-<p>垃圾回收算法</p>
-<p>对垃圾回收算法来说，核心思想就是如何判断内存已经不再使用，常用垃圾回收算法有下面两种。</p>
+<h3 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h3><p>对垃圾回收算法来说，核心思想就是如何判断内存已经不再使用，常用垃圾回收算法有下面两种。</p>
 <ul>
 <li>1.引用计数（现代浏览器不再使用）</li>
 <li>2.标记清除（常用）</li>
 </ul>
-<p><strong>引用计数</strong></p>
-<p>引用计数算法定义“内存不再使用”的标准很简单，就是看一个对象是否有<strong>指向它的引用</strong>。如果没有其他对象指向它了，说明该对象已经不再需要了。</p>
+<h4 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h4><p>引用计数算法定义“内存不再使用”的标准很简单，就是看一个对象是否有<strong>指向它的引用</strong>。如果没有其他对象指向它了，说明该对象已经不再需要了。</p>
 <pre><code>// 创建一个对象person，他有两个指向属性age和name的引用
 var person = {
     age: 12,
@@ -706,8 +700,7 @@ div.onclick = function() {
     console.log(&quot;click&quot;);
 };</code></pre><p>上面的写法很常见，但是上面的例子就是一个循环引用。</p>
 <p>变量div有事件处理函数的引用，同时事件处理函数也有div的引用，因为div变量可在函数内被访问，所以循环引用就出现了。</p>
-<p><strong>标记清除（常用）</strong></p>
-<p>标记清除算法将“不再使用的对象”定义为“无法到达的对象”。即从根部（在JS中就是全局对象）出发定时扫描内存中的对象，凡是能从根部到达的对象，保留。那些从根部出发无法触及到的对象被标记为不再使用，稍后进行回收。无法触及的对象包含了没有引用的对象这个概念，但反之未必成立。所以上面的例子就可以正确被垃圾回收处理了。</p>
+<h4 id="标记清除（常用）"><a href="#标记清除（常用）" class="headerlink" title="标记清除（常用）"></a>标记清除（常用）</h4><p>标记清除算法将“不再使用的对象”定义为“无法到达的对象”。即从根部（在JS中就是全局对象）出发定时扫描内存中的对象，凡是能从根部到达的对象，保留。那些从根部出发无法触及到的对象被标记为不再使用，稍后进行回收。无法触及的对象包含了没有引用的对象这个概念，但反之未必成立。所以上面的例子就可以正确被垃圾回收处理了。</p>
 <p>算法由以下几步组成：</p>
 <ul>
 <li><p>1、垃圾回收器创建了一个“roots”列表。roots 通常是代码中全局变量的引用。JavaScript 中，“window” 对象是一个全局变量，被当作 root 。window 对象总是存在，因此垃圾回收器可以检查它和它的所有子对象是否存在（即不是垃圾）；</p>
@@ -718,27 +711,23 @@ div.onclick = function() {
 </li>
 </ul>
 <p>现代的垃圾回收器改良了算法，但是本质是相同的：可达内存被标记，其余的被当作垃圾回收。</p>
-<h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。 对于不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）<br><strong>内存泄漏识别方法</strong></p>
-<ul>
-<li>1、<strong>浏览器方法</strong><br>打开开发者工具，选择 Memory<br>在右侧的Select profiling type字段里面勾选 timeline<br>点击左上角的录制按钮。<br>在页面上进行各种操作，模拟用户的使用情况。<br>一段时间后，点击左上角的 stop 按钮，面板上就会显示这段时间的内存占用情况。</li>
-<li>2、<strong>命令行方法</strong><br>使用 Node 提供的 process.memoryUsage 方法。<pre><code>console.log(process.memoryUsage());
+<h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。 对于不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）</p>
+<h3 id="内存泄漏识别方法"><a href="#内存泄漏识别方法" class="headerlink" title="内存泄漏识别方法"></a>内存泄漏识别方法</h3><h4 id="浏览器方法"><a href="#浏览器方法" class="headerlink" title="浏览器方法"></a>浏览器方法</h4><p>打开开发者工具，选择 Memory<br>在右侧的Select profiling type字段里面勾选 timeline<br>点击左上角的录制按钮。<br>在页面上进行各种操作，模拟用户的使用情况。<br>一段时间后，点击左上角的 stop 按钮，面板上就会显示这段时间的内存占用情况。</p>
+<h4 id="命令行方法"><a href="#命令行方法" class="headerlink" title="命令行方法"></a>命令行方法</h4><p>使用 Node 提供的 process.memoryUsage 方法。</p>
+<pre><code>console.log(process.memoryUsage());
 // 输出
 { 
-rss: 27709440,        // resident set size，所有内存占用，包括指令区和堆栈
-heapTotal: 5685248,   // &quot;堆&quot;占用的内存，包括用到的和没用到的
-heapUsed: 3449392,    // 用到的堆的部分
-external: 8772         // V8 引擎内部的 C++ 对象占用的内存
-}</code></pre>判断内存泄漏，以heapUsed字段为准。</li>
-</ul>
-<p><strong>WeakMap</strong></p>
-<p>ES6 新出的两种数据结构：<code>WeakSet</code> 和 <code>WeakMap</code>，表示这是弱引用，它们对于值的引用都是不计入垃圾回收机制的。</p>
+  rss: 27709440,        // resident set size，所有内存占用，包括指令区和堆栈
+  heapTotal: 5685248,   // &quot;堆&quot;占用的内存，包括用到的和没用到的
+  heapUsed: 3449392,    // 用到的堆的部分
+  external: 8772         // V8 引擎内部的 C++ 对象占用的内存
+}</code></pre><p>判断内存泄漏，以heapUsed字段为准。</p>
+<h3 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h3><p>ES6 新出的两种数据结构：<code>WeakSet</code> 和 <code>WeakMap</code>，表示这是弱引用，它们对于值的引用都是不计入垃圾回收机制的。</p>
 <pre><code>const wm = new WeakMap();
 const element = document.getElementById(&#39;example&#39;);
 wm.set(element, &#39;some information&#39;);
 wm.get(element) // &quot;some information&quot;</code></pre><p>先新建一个 Weakmap 实例，然后将一个 DOM 节点作为键名存入该实例，并将一些附加信息作为键值，一起存放在 WeakMap 里面。这时，WeakMap 里面对element的引用就是弱引用，不会被计入垃圾回收机制。</p>
-<p><strong>四种常见的JS内存泄漏</strong></p>
-<p>1、<strong>意外的全局变量</strong></p>
-<p>未定义的变量会在全局对象创建一个新变量，如下。</p>
+<h3 id="四种常见的JS内存泄漏"><a href="#四种常见的JS内存泄漏" class="headerlink" title="四种常见的JS内存泄漏"></a>四种常见的JS内存泄漏</h3><h4 id="意外的全局变量"><a href="#意外的全局变量" class="headerlink" title="意外的全局变量"></a>意外的全局变量</h4><p>未定义的变量会在全局对象创建一个新变量，如下。</p>
 <pre><code>function foo(arg) {
     bar = &quot;this is a hidden global variable&quot;;
 }
@@ -753,8 +742,7 @@ function foo() {
 // Foo 调用自己，this 指向了全局对象（window）
 // 而不是 undefined
 foo();</code></pre><p>解决方法：在 JavaScript 文件头部加上 ‘use strict’，使用严格模式避免意外的全局变量，此时上例中的this指向undefined。如果必须使用全局变量存储大量数据时，确保用完以后把它设置为 null 或者重新定义。</p>
-<p>2、<strong>被遗忘的计时器或回调函数</strong></p>
-<p>计时器setInterval代码很常见</p>
+<h4 id="被遗忘的计时器或回调函数"><a href="#被遗忘的计时器或回调函数" class="headerlink" title="被遗忘的计时器或回调函数"></a>被遗忘的计时器或回调函数</h4><p>计时器setInterval代码很常见</p>
 <pre><code>var someResource = getData();
 setInterval(function() {
     var node = document.getElementById(&#39;Node&#39;);
@@ -768,8 +756,7 @@ function onClick(event) {
     element.innerHTML = &#39;text&#39;;
 }
 element.addEventListener(&#39;click&#39;, onClick);</code></pre><p>对于上面观察者的例子，一旦它们不再需要（或者关联的对象变成不可达），明确地移除它们非常重要。老的 IE 6 是无法处理循环引用的。因为老版本的 IE 是无法检测 DOM 节点与 JavaScript 代码之间的循环引用，会导致内存泄漏。<br>但是，现代的浏览器（包括 IE 和 Microsoft Edge）使用了更先进的垃圾回收算法（标记清除），已经可以正确检测和处理循环引用了。即回收节点内存时，不必非要调用<code>removeEventListener</code>了。</p>
-<p>3、<strong>脱离 DOM 的引用</strong></p>
-<p>如果把DOM 存成字典（JSON 键值对）或者数组，此时，同样的 DOM 元素存在两个引用：一个在 DOM树中，另一个在字典中。那么将来需要把两个引用都清除。</p>
+<h4 id="脱离-DOM-的引用"><a href="#脱离-DOM-的引用" class="headerlink" title="脱离 DOM 的引用"></a>脱离 DOM 的引用</h4><p>如果把DOM 存成字典（JSON 键值对）或者数组，此时，同样的 DOM 元素存在两个引用：一个在 DOM树中，另一个在字典中。那么将来需要把两个引用都清除。</p>
 <pre><code>var elements = {
     button: document.getElementById(&#39;button&#39;),
     image: document.getElementById(&#39;image&#39;),
@@ -787,8 +774,7 @@ function removeButton() {
     // 此时，仍旧存在一个全局的 #button 的引用
     // elements 字典。button 元素仍旧在内存中，不能被 GC 回收。
 }</code></pre><p>如果代码中保存了表格某一个<code>&lt;td&gt;</code> 的引用。将来决定删除整个表格的时候，直觉认为 GC 会回收除了已保存的<code>&lt;td&gt;</code>以外的其它节点。实际情况并非如此：此 <code>&lt;td&gt;</code> 是表格的子节点，子元素与父元素是引用关系。由于代码保留了<code>&lt;td&gt;</code> 的引用，导致整个表格仍待在内存中。所以保存 DOM 元素引用的时候，要小心谨慎。</p>
-<p>4.<strong>闭包</strong></p>
-<p>闭包的关键是匿名函数可以访问父级作用域的变量。</p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>闭包的关键是匿名函数可以访问父级作用域的变量。</p>
 <pre><code>var theThing = null;
 var replaceThing = function () {
   var originalThing = theThing;
@@ -881,18 +867,17 @@ setInterval(replaceThing, 1000);</code></pre><p>每次调用 replaceThing ，the
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/09/07/执行栈/">
+                <a href="/2018/09/07/原型链/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="作用域">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="调用栈">
                         
-                        <span class="card-title">作用域</span>
+                        <span class="card-title">调用栈</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -902,9 +887,9 @@ setInterval(replaceThing, 1000);</code></pre><p>每次调用 replaceThing ，the
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -917,16 +902,27 @@ setInterval(replaceThing, 1000);</code></pre><p>每次调用 replaceThing ，the
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/执行栈/" target="_blank">
-                        <span class="chip bg-color">执行栈</span>
+                    <a href="/tags/调用栈/" target="_blank">
+                        <span class="chip bg-color">调用栈</span>
                     </a>
                     
                     <a href="/tags/内存/" target="_blank">
                         <span class="chip bg-color">内存</span>
+                    </a>
+                    
+                    <a href="/tags/内存泄漏/" target="_blank">
+                        <span class="chip bg-color">内存泄漏</span>
+                    </a>
+                    
+                    <a href="/tags/上下文/" target="_blank">
+                        <span class="chip bg-color">上下文</span>
+                    </a>
+                    
+                    <a href="/tags/垃圾回收算法/" target="_blank">
+                        <span class="chip bg-color">垃圾回收算法</span>
                     </a>
                     
                     <a href="/tags/提升/" target="_blank">
