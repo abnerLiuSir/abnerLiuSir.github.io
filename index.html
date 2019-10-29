@@ -353,6 +353,28 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/18.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">逐行解析Axios源码</div>
+                    <div class="description center-align">
+                    
+                        本文主要关注axios中主流程的源码，对于一些工具函数的实现会略过。
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/10/27/axios/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/13.jpg');">
         <div class="container">
             <div class="row">
@@ -386,29 +408,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2018/10/10/原型链/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/11.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
-                    <div class="title center-align">作用域</div>
-                    <div class="description center-align">
-                    
-                        本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2018/10/04/执行栈/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/10/10/原型链/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -430,7 +430,29 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2018/09/20/数据类型/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/09/20/数据类型/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/11.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">作用域</div>
+                    <div class="description center-align">
+                    
+                        本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/10/04/执行栈/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -452,7 +474,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2018/09/28/调用栈/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/09/28/调用栈/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -546,7 +568,28 @@ $(function () {
 
     
     
-    <div class="col s12 m6" >
+    <div class="col s12" >
+        <div class="post-card" style="background-image: url('/medias/featureimages/18.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/源码/" class="category" target="_blank">源码</a>
+                    
+                </div>
+                <a href="/2019/10/27/axios/" target="_blank">
+                    <h3 class="post-title">逐行解析Axios源码</h3>
+                </a>
+                <p class="post-description">本文主要关注axios中主流程的源码，对于一些工具函数的实现会略过。</p>
+                <a href="/2019/10/27/axios/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('/medias/featureimages/13.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -557,37 +600,8 @@ $(function () {
                 <a href="/2019/10/25/http/" target="_blank">
                     <h3 class="post-title">HTTP/2与HTTP/3 的新特性</h3>
                 </a>
-                <p class="post-description">
-                    
-                        HTTP/2 相比于 HTTP/1.1，可以说是大幅度提高了网页的性能，只需要升级到该协议就可以减少很多之前需要做的性能优化工作，当然兼容问题以及如何优雅降级应该是国内还不普遍使用的原因之一。
-                    
-                </p>
+                <p class="post-description">HTTP/2 相比于 HTTP/1.1，可以说是大幅度提高了网页的性能，只需要升级到该协议就可以减少很多之前需要做的性能优化工作，当然兼容问题以及如何优雅降级应该是国内还不普遍使用的原因之一。</p>
                 <a href="/2019/10/25/http/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/18.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/JS/" class="category" target="_blank">JS</a>
-                    
-                </div>
-                <a href="/2018/10/10/原型链/" target="_blank">
-                    <h3 class="post-title">原型链</h3>
-                </a>
-                <p class="post-description">
-                    
-                        本篇博客解析了对象，构造函数与原型之前的关系，还有类与继承。
-                    
-                </p>
-                <a href="/2018/10/10/原型链/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
@@ -597,6 +611,27 @@ $(function () {
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/18.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/JS/" class="category" target="_blank">JS</a>
+                    
+                </div>
+                <a href="/2019/10/10/原型链/" target="_blank">
+                    <h3 class="post-title">原型链</h3>
+                </a>
+                <p class="post-description">本篇博客解析了对象，构造函数与原型之前的关系，还有类与继承。</p>
+                <a href="/2019/10/10/原型链/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('/medias/featureimages/11.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -604,16 +639,12 @@ $(function () {
                     <a href="/categories/JS/" class="category" target="_blank">JS</a>
                     
                 </div>
-                <a href="/2018/10/04/执行栈/" target="_blank">
+                <a href="/2019/10/04/执行栈/" target="_blank">
                     <h3 class="post-title">作用域</h3>
                 </a>
-                <p class="post-description">
-                    
-                        本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升
-                    
-                </p>
-                <a href="/2018/10/04/执行栈/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
+                <p class="post-description">本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升</p>
+                <a href="/2019/10/04/执行栈/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -629,16 +660,12 @@ $(function () {
                     <a href="/categories/JS/" class="category" target="_blank">JS</a>
                     
                 </div>
-                <a href="/2018/09/28/调用栈/" target="_blank">
+                <a href="/2019/09/28/调用栈/" target="_blank">
                     <h3 class="post-title">调用栈</h3>
                 </a>
-                <p class="post-description">
-                    
-                        本篇博客解析了代码调用时发生了什么，以及内存泄漏的几种常见情况，还有垃圾回收算法
-                    
-                </p>
-                <a href="/2018/09/28/调用栈/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
+                <p class="post-description">本篇博客解析了代码调用时发生了什么，以及内存泄漏的几种常见情况，还有垃圾回收算法</p>
+                <a href="/2019/09/28/调用栈/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -661,6 +688,61 @@ $(function () {
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/10/27/axios/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="逐行解析Axios源码">
+                            
+                            <span class="card-title">逐行解析Axios源码</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                本文主要关注axios中主流程的源码，对于一些工具函数的实现会略过。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/源码/" class="post-category" target="_blank">
+                                    源码
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ajax/" target="_blank">
+                            <span class="chip bg-color">ajax</span>
+                        </a>
+                        
+                        <a href="/tags/axios/" target="_blank">
+                            <span class="chip bg-color">axios</span>
+                        </a>
+                        
+                        <a href="/tags/网络请求/" target="_blank">
+                            <span class="chip bg-color">网络请求</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -719,7 +801,7 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/10/原型链/">
+                    <a href="/2019/10/10/原型链/">
                         <div class="card-image">
                             
                             
@@ -737,7 +819,7 @@ $(function () {
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-10
                             </span>
                             <span class="publish-author">
                                 
@@ -782,7 +864,7 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/10/04/执行栈/">
+                    <a href="/2019/10/04/执行栈/">
                         <div class="card-image">
                             
                             
@@ -800,7 +882,7 @@ $(function () {
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-04
                             </span>
                             <span class="publish-author">
                                 
@@ -837,7 +919,7 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/09/28/调用栈/">
+                    <a href="/2019/09/28/调用栈/">
                         <div class="card-image">
                             
                             
@@ -855,7 +937,7 @@ $(function () {
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-28
                             </span>
                             <span class="publish-author">
                                 
@@ -904,7 +986,7 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/09/20/数据类型/">
+                    <a href="/2019/09/20/数据类型/">
                         <div class="card-image">
                             
                             
@@ -922,7 +1004,7 @@ $(function () {
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-20
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-20
                             </span>
                             <span class="publish-author">
                                 
@@ -965,7 +1047,7 @@ $(function () {
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17k</span>&nbsp;字
+                class="white-color">21.3k</span>&nbsp;字
             
             
             
