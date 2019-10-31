@@ -397,6 +397,50 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/11.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">作用域</div>
+                    <div class="description center-align">
+                    
+                        本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/10/04/执行栈/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/19.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">深入理解JS异步</div>
+                    <div class="description center-align">
+                    
+                        深入了解一下Promise Generator和async-await
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/10/30/深入理解JS异步/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/18.jpg');">
         <div class="container">
             <div class="row">
@@ -419,40 +463,18 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/16.jpg');">
+            style="background-image: url('/medias/featureimages/6.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <div class="title center-align">基本数据类型</div>
+                    <div class="title center-align">每日一题</div>
                     <div class="description center-align">
                     
-                        本篇博客解析了JS的数据类型，检测方法和相互转换
+                        每天攻破一道面试题，
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2019/09/20/数据类型/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/11.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
-                    <div class="title center-align">作用域</div>
-                    <div class="description center-align">
-                    
-                        本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2019/10/04/执行栈/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/10/29/每日一题/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -568,7 +590,7 @@ $(function () {
 
     
     
-    <div class="col s12" >
+    <div class="col s12 m6" >
         <div class="post-card" style="background-image: url('/medias/featureimages/18.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -579,7 +601,11 @@ $(function () {
                 <a href="/2019/10/27/axios/" target="_blank">
                     <h3 class="post-title">逐行解析Axios源码</h3>
                 </a>
-                <p class="post-description">本文主要关注axios中主流程的源码，对于一些工具函数的实现会略过。</p>
+                <p class="post-description">
+                    
+                        本文主要关注axios中主流程的源码，对于一些工具函数的实现会略过。
+                    
+                </p>
                 <a href="/2019/10/27/axios/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
@@ -589,7 +615,7 @@ $(function () {
     </div>
     
     
-    <div class="col s12 m6" data-aos="zoom-in-up">
+    <div class="col s12 m6" >
         <div class="post-card" style="background-image: url('/medias/featureimages/13.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -600,51 +626,13 @@ $(function () {
                 <a href="/2019/10/25/http/" target="_blank">
                     <h3 class="post-title">HTTP/2与HTTP/3 的新特性</h3>
                 </a>
-                <p class="post-description">HTTP/2 相比于 HTTP/1.1，可以说是大幅度提高了网页的性能，只需要升级到该协议就可以减少很多之前需要做的性能优化工作，当然兼容问题以及如何优雅降级应该是国内还不普遍使用的原因之一。</p>
+                <p class="post-description">
+                    
+                        HTTP/2 相比于 HTTP/1.1，可以说是大幅度提高了网页的性能，只需要升级到该协议就可以减少很多之前需要做的性能优化工作，当然兼容问题以及如何优雅降级应该是国内还不普遍使用的原因之一。
+                    
+                </p>
                 <a href="/2019/10/25/http/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/18.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/JS/" class="category" target="_blank">JS</a>
-                    
-                </div>
-                <a href="/2019/10/10/原型链/" target="_blank">
-                    <h3 class="post-title">原型链</h3>
-                </a>
-                <p class="post-description">本篇博客解析了对象，构造函数与原型之前的关系，还有类与继承。</p>
-                <a href="/2019/10/10/原型链/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
-                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/11.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                    <a href="/categories/JS/" class="category" target="_blank">JS</a>
-                    
-                </div>
-                <a href="/2019/10/04/执行栈/" target="_blank">
-                    <h3 class="post-title">作用域</h3>
-                </a>
-                <p class="post-description">本篇博客解析了代码执行时的执行上下文与内存情况，解释为什么JS会有提升</p>
-                <a href="/2019/10/04/执行栈/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -657,15 +645,44 @@ $(function () {
             <div class="post-body">
                 <div class="post-categories">
                     
-                    <a href="/categories/JS/" class="category" target="_blank">JS</a>
+                    <a href="/categories/异步/" class="category" target="_blank">异步</a>
                     
                 </div>
-                <a href="/2019/09/28/调用栈/" target="_blank">
-                    <h3 class="post-title">调用栈</h3>
+                <a href="/2019/10/30/深入理解JS异步/" target="_blank">
+                    <h3 class="post-title">深入理解JS异步</h3>
                 </a>
-                <p class="post-description">本篇博客解析了代码调用时发生了什么，以及内存泄漏的几种常见情况，还有垃圾回收算法</p>
-                <a href="/2019/09/28/调用栈/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)">
+                <p class="post-description">
+                    
+                        深入了解一下Promise Generator和async-await
+                    
+                </p>
+                <a href="/2019/10/30/深入理解JS异步/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/6.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/面试/" class="category" target="_blank">面试</a>
+                    
+                </div>
+                <a href="/2019/10/29/每日一题/" target="_blank">
+                    <h3 class="post-title">每日一题</h3>
+                </a>
+                <p class="post-description">
+                    
+                        每天攻破一道面试题，
+                    
+                </p>
+                <a href="/2019/10/29/每日一题/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -688,6 +705,108 @@ $(function () {
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/10/30/深入理解JS异步/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="深入理解JS异步">
+                            
+                            <span class="card-title">深入理解JS异步</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                深入了解一下Promise Generator和async-await
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/异步/" class="post-category" target="_blank">
+                                    异步
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Promise/" target="_blank">
+                            <span class="chip bg-color">Promise</span>
+                        </a>
+                        
+                        <a href="/tags/async-await/" target="_blank">
+                            <span class="chip bg-color">async-await</span>
+                        </a>
+                        
+                        <a href="/tags/Generator/" target="_blank">
+                            <span class="chip bg-color">Generator</span>
+                        </a>
+                        
+                        <a href="/tags/任务队列/" target="_blank">
+                            <span class="chip bg-color">任务队列</span>
+                        </a>
+                        
+                        <a href="/tags/event-loop/" target="_blank">
+                            <span class="chip bg-color">event-loop</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/10/29/每日一题/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="每日一题">
+                            
+                            <span class="card-title">每日一题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                每天攻破一道面试题，
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/面试/" class="post-category" target="_blank">
+                                    面试
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1047,7 +1166,7 @@ $(function () {
             <br>
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.3k</span>&nbsp;字
+                class="white-color">22.9k</span>&nbsp;字
             
             
             

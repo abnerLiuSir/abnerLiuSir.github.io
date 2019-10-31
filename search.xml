@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>深入理解JS异步</title>
+      <link href="/2019/10/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JS%E5%BC%82%E6%AD%A5/"/>
+      <url>/2019/10/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JS%E5%BC%82%E6%AD%A5/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://github.com/wangfupeng1988" target="_blank" rel="noopener">本文出自</a></p><h2 id="什么是异步"><a href="#什么是异步" class="headerlink" title="什么是异步"></a>什么是异步</h2><h3 id="JS-为何会有异步"><a href="#JS-为何会有异步" class="headerlink" title="JS 为何会有异步"></a>JS 为何会有异步</h3><p>首先记住一句话 —— <strong>JS 是单线程的语言</strong>，所谓“单线程”就是一根筋，对于拿到的程序，一行一行的执行，上面的执行为完成，就傻傻的等着。例如</p><pre><code>var i, t = Date.now()for (i = 0; i &lt; 100000000; i++) {}console.log(Date.now() - t)  // 308 （chrome浏览器）</code></pre><p>上面的程序花费 308ms 的时间执行完成，执行过程中就会有卡顿，其他的事儿就先撂一边不管了。</p><p>执行程序这样没有问题，但是对于 JS 最初使用的环境 ———— 浏览器客户端 ———— 就不一样了。因此在浏览器端运行的 js ，可能会有大量的网络请求，而一个网络资源啥时候返回，这个时间是不可预估的。这种情况也要傻傻的等着、卡顿着、啥都不做吗？———— 那肯定不行。</p><p>因此，JS 对于这种场景就设计了异步 ———— 即，<strong>发起一个网络请求，就先不管这边了，先干其他事儿，网络请求啥时候返回结果，到时候再说</strong>。这样就能保证一个网页的流程运行。</p><h3 id="异步的实现原理"><a href="#异步的实现原理" class="headerlink" title="异步的实现原理"></a>异步的实现原理</h3><p>先看一段比较常见的代码</p><pre><code>var ajax = $.ajax({    url: &#39;/data/data1.json&#39;,    success: function () {        console.log(&#39;success&#39;)    }})</code></pre><p>上面代码中<code>$.ajax()</code>需要传入两个参数进去，url和success，其中url是请求的路由，success是一个函数。<strong>这个函数传递过去不会立即执行，而是等着请求成功之后才能执行</strong>。对于这种传递过去不执行，等出来结果之后再执行的函数，叫做callback，即<strong>回调函数</strong></p><p>再看一段更加能说明回调函数的 nodejs 代码。和上面代码基本一样，唯一区别就是：上面代码时网络请求，而下面代码时 IO 操作。</p><p>var fs = require(‘fs’)<br>fs.readFile(‘data1.json’, (err, data) =&gt; {<br>    console.log(data.toString())<br>})<br>从上面两个 demo 看来，实现异步的最核心原理，就是<strong>将callback作为参数传递给异步执行函数，当有结果返回之后再触发 callback执行</strong>，就是如此简单！</p><h3 id="常用的异步操作"><a href="#常用的异步操作" class="headerlink" title="常用的异步操作"></a>常用的异步操作</h3><p>开发中比较常用的异步操作有：</p><ul><li>网络请求，如ajax http.get</li><li>IO 操作，如readFile readdir</li><li>定时函数，如setTimeout setInterval</li></ul><h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event-loop"></a>event-loop</h2><h2 id="jQuery-1-5-之后的-ajax"><a href="#jQuery-1-5-之后的-ajax" class="headerlink" title="jQuery-1.5 之后的 ajax"></a>jQuery-1.5 之后的 ajax</h2><p><code>$.ajax</code>这个函数各位应该都比较熟悉了，要完整的讲解 js 的异步操作，就必须先从$.ajax这个方法说起。</p><h3 id="传统的-ajax"><a href="#传统的-ajax" class="headerlink" title="传统的$.ajax"></a>传统的$.ajax</h3><p>先来一段最常见的$.ajax的代码，当然是使用万恶的callback方式</p><pre><code>var ajax = $.ajax({    url: &#39;data.json&#39;,    success: function () {        console.log(&#39;success&#39;)    },    error: function () {        console.log(&#39;error&#39;)    }})console.log(ajax) // 返回一个 XHR 对象</code></pre><p>至于这么做会产生什么样子的诟病，我想大家应该都很明白了。不明白的自己私下去查，但是你也可以继续往下看，你只需要记住这样做很不好就是了，要不然 jquery 也不会再后面进行改进</p><h3 id="1-5-版本之后的-ajax"><a href="#1-5-版本之后的-ajax" class="headerlink" title="1.5 版本之后的$.ajax"></a>1.5 版本之后的$.ajax</h3><p>但是从v1.5开始，以上代码就可以这样写了：可以链式的执行done或者fail方法</p><pre><code>var ajax = $.ajax(&#39;data.json&#39;)ajax.done(function () {    console.log(&#39;success 1&#39;)}).fail(function () {    console.log(&#39;error&#39;)}).done(function () {        console.log(&#39;success 2&#39;)})console.log(ajax) // 返回一个 deferred 对象</code></pre><p>大家注意看以上两段代码中都有一个console.log(ajax)，但是返回值是完全不一样的。</p><p>v1.5之前，返回的是一个XHR对象，这个对象不可能有done或者fail的方法的<br>v1.5开始，返回一个deferred对象，这个对象就带有done和fail的方法，并且是等着请求返回之后再去调用</p><h3 id="改进之后的好处"><a href="#改进之后的好处" class="headerlink" title="改进之后的好处"></a>改进之后的好处</h3><p>这是一个标志性的改造，不管这个概念是谁最先提出的，它在 jquery 中首先大量使用并让全球开发者都知道原来 ajax 请求还可以这样写。这为以后的Promise标准制定提供了很大意义的参考，你可以以为这就是后面Promise的原型。</p><p>记住一句话————<strong>虽然 JS 是异步执行的语言，但是人的思维是同步的</strong>————因此，开发者总是在寻求如何使用逻辑上看似同步的代码来完成 JS 的异步请求。而 jquery 的这一次更新，让开发者在一定程度上得到了这样的好处。</p><p>之前无论是什么操作，我都需要一股脑写到callback中，现在不用了。现在成功了就写到done中，失败了就写到fail中，如果成功了有多个步骤的操作，那我就写很多个done，然后链式连接起来就 OK 了。</p><h3 id="和后来的Promise的关系"><a href="#和后来的Promise的关系" class="headerlink" title="和后来的Promise的关系"></a>和后来的Promise的关系</h3><p>以上的这段代码，我们还可以这样写。即不用done和fail函数，而是用then函数。then函数的第一个参数是成功之后执行的函数（即之前的done），第二个参数是失败之后执行的函数（即之前的fail）。而且then函数还可以链式连接。</p><pre><code>var ajax = $.ajax(&#39;data.json&#39;)ajax.then(function () {    console.log(&#39;success 1&#39;)}, function () {    console.log(&#39;error 1&#39;)}).then(function () {    console.log(&#39;success 2&#39;)}, function () {    console.log(&#39;error 2&#39;)})</code></pre><h2 id="jQuery-deferred"><a href="#jQuery-deferred" class="headerlink" title="jQuery deferred"></a>jQuery deferred</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 异步 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Promise </tag>
+            
+            <tag> async-await </tag>
+            
+            <tag> Generator </tag>
+            
+            <tag> 任务队列 </tag>
+            
+            <tag> event-loop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>每日一题</title>
+      <link href="/2019/10/29/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+      <url>/2019/10/29/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="第一题-‘1’-‘2’-‘3’-map-parseInt"><a href="#第一题-‘1’-‘2’-‘3’-map-parseInt" class="headerlink" title="第一题 : [‘1’, ‘2’, ‘3’].map(parseInt)"></a>第一题 : [‘1’, ‘2’, ‘3’].map(parseInt)</h2><p>第一眼看到这个题目的时候，脑海跳出的答案是 [1, 2, 3]，但是真正的答案是[1, NaN, NaN]。</p><ul><li><p>首先让我们回顾一下，<code>map</code>函数的第一个参数callback：<br><code>var new_array = arr.map(function callback(currentValue[, index[, array]]) { // Return element for new_array }[, thisArg])</code><br>这个callback一共可以接收三个参数，其中第一个参数代表当前被处理的元素，而第二个参数代表该元素的索引。</p></li><li><p>而parseInt则是用来解析字符串的，使字符串成为指定基数的整数。<br>parseInt(string, radix)<br>接收两个参数，第一个表示被处理的值（字符串），第二个表示为解析时的基数。</p></li><li><p>了解这两个函数后，我们可以模拟一下运行情况</p></li></ul><ol><li>parseInt(‘1’, 0) //radix为0时，且string参数不以“0x”和“0”开头时，按照10为基数处理。这个时候返回1</li><li>parseInt(‘2’, 1) //基数为1（1进制）表示的数中，最大值小于2，所以无法解析，返回NaN</li><li>parseInt(‘3’, 2) //基数为2（2进制）表示的数中，最大值小于3，所以无法解析，返回NaN<br>map函数返回的是一个数组，所以最后结果为<strong>[1, NaN, NaN]</strong></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>逐行解析Axios源码</title>
       <link href="/2019/10/27/axios/"/>
       <url>/2019/10/27/axios/</url>
