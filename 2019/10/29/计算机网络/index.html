@@ -4,9 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="基本数据类型, 博客">
-    <meta name="description" content="内置类型JS 中分为七种内置类型，七种内置类型又分为两大类型：基本类型和对象（Object）。 基本类型有六种： null，undefined，boolean，number，string，symbol。
-Typeoftypeof 对于基本类">
+    <meta name="keywords" content="面试篇之---计算机网络, 博客">
+    <meta name="description" content="1、谈下你对五层网络协议体系结构的理解？学习计算机网络时我们一般采用折中的办法，也就是中和 OSI 和 TCP/IP 的优点，采用一种只有五层协议的体系结构，这样既简洁又能将概念阐述清楚。
+
+应用层应用层（application-layer">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@ Typeoftypeof 对于基本类">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>基本数据类型 | abnerLiu</title>
+    <title>面试篇之---计算机网络 | abnerLiu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -244,13 +245,13 @@ Typeoftypeof 对于基本类">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        基本数据类型
+                        面试篇之---计算机网络
                     </div>
                 </div>
             </div>
@@ -361,8 +362,8 @@ Typeoftypeof 对于基本类">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/数据类型/" target="_blank">
-                                <span class="chip bg-color">数据类型</span>
+                            <a href="/tags/网络协议/" target="_blank">
+                                <span class="chip bg-color">网络协议</span>
                             </a>
                         
                     </div>
@@ -373,8 +374,8 @@ Typeoftypeof 对于基本类">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JS/" class="post-category" target="_blank">
-                                JS
+                            <a href="/categories/计算机网络/" class="post-category" target="_blank">
+                                计算机网络
                             </a>
                         
                     </div>
@@ -385,21 +386,21 @@ Typeoftypeof 对于基本类">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-20
+                    2019-10-29
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        972
+                        1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        3 分
                     </div>
                     
                 
@@ -415,66 +416,14 @@ Typeoftypeof 对于基本类">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="内置类型"><a href="#内置类型" class="headerlink" title="内置类型"></a>内置类型</h1><p>JS 中分为七种内置类型，七种内置类型又分为两大类型：基本类型和对象（Object）。 基本类型有六种： <code>null</code>，<code>undefined</code>，<code>boolean</code>，<code>number</code>，<code>string</code>，<code>symbol</code>。</p>
-<h2 id="Typeof"><a href="#Typeof" class="headerlink" title="Typeof"></a>Typeof</h2><p>typeof 对于基本类型，除了 null 都可以显示正确的类型<br><img src="https://user-gold-cdn.xitu.io/2019/8/8/16c6ee7529bae2d7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt><br>000 开头代表是对象，然而 null 表示 为全零，所以将它错误的判断为 object 。</p>
-<h2 id="instanceof-和-Object-prototype-toString-call"><a href="#instanceof-和-Object-prototype-toString-call" class="headerlink" title="instanceof 和 Object.prototype.toString.call"></a>instanceof 和 Object.prototype.toString.call</h2><p>typeof 无法判断数组，对象.<br>可以通过<code>Object.prototype.toString.call(xx)</code>。这样我们就可以获得类似 <code>[Object Type]</code> 的字符串。<br><code>instanceof</code> 可以正确的判断对象的类型，因为内部机制是通过判断对象的原型链 中是不是能找到类型的 <code>prototype</code>。</p>
-<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="ToString负责处理非字符串到字符串的强制类型转换"><a href="#ToString负责处理非字符串到字符串的强制类型转换" class="headerlink" title="ToString负责处理非字符串到字符串的强制类型转换"></a><code>ToString</code>负责处理非字符串到字符串的强制类型转换</h3><p>null转换为’null’,undefined转换为’undefined’,其他基本类型都调用基本类型的包装对象属性toString()并返回值。</p>
-<pre><code>const a = 123; 
-const _a = new Number(123); 
-console.log(String(a), _a.toString());               //&#39;123&#39; &#39;123&#39; 
-数字的字符串化遵循通用规则，但是极小极大数字使用指数形式
-const a = 1.07*1000*1000*1000*1000*1000*1000*1000;
-console.log(String(a));                               //&#39;1.07e+21&#39;</code></pre><p>对于普通对象来说，除非自行定义，否则<code>toString()</code>返回<code>Object.prototype.toString()</code>的值,其他对象有自己的<code>toString()</code>方法则调用自己的该方法.</p>
-<pre><code>const b = {};
-console.log(String(b));                                //[object object]</code></pre><p>对于数组来说会转成以“，”拼接各项的字符串</p>
-<pre><code>const arr = [{s:1},2,3]
-console.log(arr.toString())                           //&quot;[object Object],2,3&quot;</code></pre><h3 id="ToNumber负责处理非数字到数字的强制类型转换"><a href="#ToNumber负责处理非数字到数字的强制类型转换" class="headerlink" title="ToNumber负责处理非数字到数字的强制类型转换"></a><code>ToNumber</code>负责处理非数字到数字的强制类型转换</h3><p>true转换为1，false转换为0，undefined转换为NaN，null转换为0</p>
-<pre><code>console.log(Number(null));                                //0 
-console.log(Number(undefined));                           //NaN
-console.log(Number(true));                                //1
-console.log(Number(false));                               //0</code></pre><p>对字符串的处理遵循数字常量的相关规定/语法，处理失败时返回NaN</p>
-<pre><code>console.log(Number(&#39;123&#39;));                               //123
-console.log(Number(&#39;0b111&#39;));                             //7
-console.log(Number(&#39;0o123&#39;));                             //83
-console.log(Number(&#39;0x123&#39;));                             //291
-console.log(Number(&#39;123a&#39;));                              //NaN
-console.log(Number(&#39;a123&#39;));                              //NaN</code></pre><p>对象（包括数组）会首先按照<code>ToPrimitive</code>抽象操作被转换为相应的基本类型值，再按照前两条规则处理；如果某个对象即不存在<code>valueOf</code>方法也不存在<code>toString</code>方法，则会产生<code>TypeError</code>错误（例如Object.create(null)不存在以上两种方法）</p>
-<pre><code>const arr = [1, 2, 3]; 
-console.log(Number(arr));                               //NaN
-console.log(Number(arr.toString()));                    //NaN
-const num = new Number(123);
-console.log(Number(num));                               //123
-console.log(Number(num.valueOf()));                     //123
-const bool = new Boolean(true);
-console.log(bool.valueOf());                           //true
-console.log(Number(bool));                             //1
-console.log(Number(bool.valueOf()));                   //1
-const obj1 = {
-  toString:()=&gt;&quot;21&quot;
-}
-const obj2 = {
-  valueOf:()=&gt;&quot;42&quot;,
-  toString:()=&gt;&quot;21&quot;
-}
-const obj3 = {
-  a:1
-}
-console.log(Number(obj1));                              //21
-console.log(Number(obj2));                              //42
-console.log(obj3.toString());                           //[object Object]
-console.log(Number(obj3));                              //NaN
-const obj = Object.create(null);
-console.log(Number(obj));                               //TypeError</code></pre><h3 id="ToBoolean负责处理非布尔值到布尔值的强制类型转换，规则如下"><a href="#ToBoolean负责处理非布尔值到布尔值的强制类型转换，规则如下" class="headerlink" title="ToBoolean负责处理非布尔值到布尔值的强制类型转换，规则如下"></a><code>ToBoolean</code>负责处理非布尔值到布尔值的强制类型转换，规则如下</h3><p>可以被转换为<code>false</code>的值（<code>undefined</code>，<code>null</code>，<code>false</code>， <code>0</code>和<code>NaN</code>，’’）</p>
-<p>其他都被转换为true（切记：封装对象均被转为true）</p>
-<h2 id="隐式强制类型转换"><a href="#隐式强制类型转换" class="headerlink" title="隐式强制类型转换"></a>隐式强制类型转换</h2><p>隐式强制类型转换为字符串</p>
-<p>一元运算符加号（+）首先把非基本类型通过ToPrimitive抽象操作转换为基本类型，如果加号中的两项有一项是字符串，另一项则进行ToString操作，进行字符串拼接，如果是布尔值加数字，则对布尔进行ToNumber操作再求和</p>
-<p>隐式强制类型转换为数字，通过一元运算符-、/、*转换，遵循ToNumber的抽象值操作规则</p>
-<p>隐式强制类型转换为布尔值</p>
-<p>if(..)语句中的条件判断表达式</p>
-<p>for(..;..;..)语句的第二个条件判断表达式</p>
-<p>while(..)和do..while(..)的条件判断表达式</p>
-<p>?:中的条件判断表达式</p>
-<p>逻辑运算符||和&amp;&amp;左边的操作数（a||b等同于a?a:b，a&amp;&amp;b等同于a?b:a）</p>
+                <h2 id="1、谈下你对五层网络协议体系结构的理解？"><a href="#1、谈下你对五层网络协议体系结构的理解？" class="headerlink" title="1、谈下你对五层网络协议体系结构的理解？"></a>1、谈下你对五层网络协议体系结构的理解？</h2><p>学习计算机网络时我们一般采用折中的办法，也就是中和 OSI 和 TCP/IP 的优点，采用一种只有五层协议的体系结构，这样既简洁又能将概念阐述清楚。</p>
+<ul>
+<li><strong>应用层应用层（application-layer）</strong><br>的任务是通过应用进程间的交互来完成特定网络应用。应用层协议定义的是应用进程（进程：主机中正在运行的程序）间的通信和交互的规则。对于不同的网络应用需要不同的应用层协议。在互联网中应用层协议很多，如域名系统 DNS，支持万维网应用的 HTTP 协议，支持电子邮件的 SMTP 协议等等。我们把应用层交互的数据单元称为报文。</li>
+<li><strong>运输层运输层（transport layer）</strong><br>的主要任务就是负责向两台主机进程之间的通信提供通用的数据传输服务。应用进程利用该服务传送应用层报文。“通用的”是指并不针对某一个特定的网络应用，而是多种应用可以使用同一个运输层服务。由于一台主机可同时运行多个线程，因此运输层有复用和分用的功能。所谓复用就是指多个应用层进程可同时使用下面运输层的服务，分用和复用相反，是运输层把收到的信息分别交付上面应用层中的相应进程</li>
+<li><strong>网络层</strong><br>在计算机网络中进行通信的两个计算机之间可能会经过很多个数据链路，也可能还要经过很多通信子网。网络层的任务就是选择合适的网间路由和交换结点， 确保数据及时传送。在发送数据时，网络层把运输层产生的报文段或用户数据报封装成分组和包进行传送。在 TCP / IP 体系结构中，由于网络层使用 IP 协议，因此分组也叫 IP 数据报，简称数据报。</li>
+<li><strong>数据链路层数据链路层（data link layer）</strong><br>通常简称为链路层。两台主机之间的数据传输，总是在一段一段的链路上传送的，这就需要使用专门的链路层的协议。在两个相邻节点之间传送数据时，数据链路层将网络层交下来的 IP 数据报组装成帧，在两个相邻节点间的链路上传送帧。每一帧包括数据和必要的控制信息（如：同步信息，地址信息，差错控制等）。在接收数据时，控制信息使接收端能够知道一个帧从哪个比特开始和到哪个比特结束。这样，数据链路层在收到一个帧后，就可从中提出数据部分，上交给网络层。控制信息还使接收端能够检测到所收到的帧中有无差错。如果发现差错，数据链路层就简单地丢弃这个出了差错的帧，以避免继续在网络中传送下去白白浪费网络资源。如果需要改正数据在链路层传输时出现差错（这就是说，数据链路层不仅要检错，而且还要纠错），那么就要采用可靠性传输协议来纠正出现的差错。这种方法会使链路层的协议复杂些。</li>
+<li><strong>物理层</strong><br>在物理层上所传送的数据单位是比特。物理层（physical layer）的作用是实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异。使其上面的数据链路层不必考虑网络的具体传输介质是什么。“透明传送比特流”表示经实际电路传送后的比特流没有发生变化，对传送的比特流来说，这个电路好像是看不见的。</li>
+</ul>
 
             </div>
             <hr/>
@@ -509,9 +458,9 @@ console.log(Number(obj));                               //TypeError</code></pre>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《基本数据类型》
+                    《面试篇之---计算机网络》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/20/数据类型/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/29/计算机网络/" property="cc:attributionName"
                rel="cc:attributionURL">
                 abnerLiu
             </a> 采用
@@ -555,31 +504,31 @@ console.log(Number(obj));                               //TypeError</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/28/调用栈/">
+                <a href="/2019/10/29/双向绑定/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="调用栈">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="面试篇之---Vue 双向绑定原理">
                         
-                        <span class="card-title">调用栈</span>
+                        <span class="card-title">面试篇之---Vue 双向绑定原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本篇博客解析了代码调用时发生了什么，以及内存泄漏的几种常见情况，还有垃圾回收算法
+                            Vue双向绑定原理 Proxy Object.defineProperty
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-28
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-29
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JS/" class="post-category" target="_blank">
-                                    JS
+                            <a href="/categories/Vue/" class="post-category" target="_blank">
+                                    Vue
                                 </a>
                             
                             
@@ -589,28 +538,12 @@ console.log(Number(obj));                               //TypeError</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/内存/" target="_blank">
-                        <span class="chip bg-color">内存</span>
+                    <a href="/tags/双向绑定/" target="_blank">
+                        <span class="chip bg-color">双向绑定</span>
                     </a>
                     
-                    <a href="/tags/提升/" target="_blank">
-                        <span class="chip bg-color">提升</span>
-                    </a>
-                    
-                    <a href="/tags/调用栈/" target="_blank">
-                        <span class="chip bg-color">调用栈</span>
-                    </a>
-                    
-                    <a href="/tags/内存泄漏/" target="_blank">
-                        <span class="chip bg-color">内存泄漏</span>
-                    </a>
-                    
-                    <a href="/tags/上下文/" target="_blank">
-                        <span class="chip bg-color">上下文</span>
-                    </a>
-                    
-                    <a href="/tags/垃圾回收算法/" target="_blank">
-                        <span class="chip bg-color">垃圾回收算法</span>
+                    <a href="/tags/Proxy/" target="_blank">
+                        <span class="chip bg-color">Proxy</span>
                     </a>
                     
                 </div>
@@ -621,48 +554,39 @@ console.log(Number(obj));                               //TypeError</code></pre>
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/20/数据类型/">
+                <a href="/2019/10/29/每日一题/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="基本数据类型">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="每日一题">
                         
-                        <span class="card-title">基本数据类型</span>
+                        <span class="card-title">每日一题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本篇博客解析了JS的数据类型，检测方法和相互转换
+                            每天攻破一道面试题，
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-20
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JS/" class="post-category" target="_blank">
-                                    JS
+                            <a href="/categories/面试/" class="post-category" target="_blank">
+                                    面试
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/数据类型/" target="_blank">
-                        <span class="chip bg-color">数据类型</span>
-                    </a>
-                    
                 </div>
                 
             </div>
